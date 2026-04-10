@@ -991,16 +991,18 @@
       </div>
       <div class="contact-form">
         <h3>Schedule a Free Consultation</h3>
-        <form>
+        <form id="contact-form" action="https://formspree.io/f/mnjoknew" method="POST">
+          <input type="hidden" name="_subject" value="New consultation request – Dexton-Livvy" />
+          <input type="hidden" name="_next" value="" />
           <div class="form-row">
-            <div><label>First Name</label><input type="text" placeholder="Jane" /></div>
-            <div><label>Last Name</label><input type="text" placeholder="Smith" /></div>
+            <div><label>First Name</label><input type="text" name="first_name" placeholder="Jane" required /></div>
+            <div><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required /></div>
           </div>
-          <div><label>Business Name</label><input type="text" placeholder="Your Business LLC" /></div>
-          <div><label>Email Address</label><input type="email" placeholder="jane@yourbusiness.com" /></div>
+          <div><label>Business Name</label><input type="text" name="business_name" placeholder="Your Business LLC" /></div>
+          <div><label>Email Address</label><input type="email" name="email" placeholder="jane@yourbusiness.com" required /></div>
           <div>
             <label>Service Interest</label>
-            <select>
+            <select name="service_interest">
               <option value="">Select a service...</option>
               <option>Bookkeeping Services</option>
               <option>Payroll Services</option>
@@ -1009,9 +1011,12 @@
               <option>Monthly Package Quote</option>
             </select>
           </div>
-          <div><label>Tell Us About Your Business</label><textarea placeholder="Industry, team size, current challenges..."></textarea></div>
+          <div><label>Tell Us About Your Business</label><textarea name="message" placeholder="Industry, team size, current challenges..."></textarea></div>
           <button type="submit" class="form-btn">Send Message</button>
         </form>
+        <div id="form-success" style="display:none;padding:1.5rem;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;color:#166534;font-weight:600;margin-top:1rem;">
+          Thanks! We'll be in touch within 1 business day.
+        </div>
       </div>
     </div>
   </div>
@@ -1034,6 +1039,34 @@
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  // Formspree AJAX submit
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        } else {
+          btn.textContent = 'Error – please try again';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Error – please try again';
+        btn.disabled = false;
+      }
+    });
+  }
 </script>
 
 </body>
