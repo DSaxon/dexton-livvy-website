@@ -471,13 +471,9 @@
       background: var(--white);
       border: 1.5px solid var(--slate-100);
       border-radius: 10px;
-      padding: 1.5rem;
+      overflow: hidden;
       display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: var(--slate);
+      flex-direction: column;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
 
@@ -486,7 +482,8 @@
       box-shadow: 0 0 0 3px rgba(232,73,13,0.07);
     }
 
-    .ind-card span:first-child { font-size: 1.5rem; flex-shrink: 0; }
+    .ind-card-img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .ind-card-label { padding: 1rem 1.25rem; font-weight: 500; font-size: 0.9rem; color: var(--slate); }
 
     /* FAQ */
     .faq-section { background: var(--off); }
@@ -919,12 +916,30 @@
       </div>
     </div>
     <div class="ind-grid">
-      <div class="ind-card"><span>💼</span><span>Professional Services</span></div>
-      <div class="ind-card"><span>🔨</span><span>Construction & Trades</span></div>
-      <div class="ind-card"><span>🎬</span><span>Event & Production Companies</span></div>
-      <div class="ind-card"><span>🚚</span><span>Logistics & Field Services</span></div>
-      <div class="ind-card"><span>🛍️</span><span>Retail & Service Businesses</span></div>
-      <div class="ind-card"><span>📈</span><span>Owner‑Managed Companies</span></div>
+      <div class="ind-card">
+        <img class="ind-card-img" src="https://images.unsplash.com/photo-1758518730037-a16581a040e8?w=600&h=260&fit=crop&auto=format&q=80" alt="Professional Services">
+        <div class="ind-card-label">Professional Services</div>
+      </div>
+      <div class="ind-card">
+        <img class="ind-card-img" src="https://images.unsplash.com/photo-1694521787162-5373b598945c?w=600&h=260&fit=crop&auto=format&q=80" alt="Construction & Trades">
+        <div class="ind-card-label">Construction & Trades</div>
+      </div>
+      <div class="ind-card">
+        <img class="ind-card-img" src="https://images.unsplash.com/photo-1761618291331-535983ae4296?w=600&h=260&fit=crop&auto=format&q=80" alt="Event & Production Companies">
+        <div class="ind-card-label">Event & Production Companies</div>
+      </div>
+      <div class="ind-card">
+        <img class="ind-card-img" src="https://images.unsplash.com/photo-1532635042-a6f6ad4745f9?w=600&h=260&fit=crop&auto=format&q=80" alt="Logistics & Field Services">
+        <div class="ind-card-label">Logistics & Field Services</div>
+      </div>
+      <div class="ind-card">
+        <img class="ind-card-img" src="https://images.unsplash.com/photo-1672777368863-0d3946b57d95?w=600&h=260&fit=crop&auto=format&q=80" alt="Retail & Service Businesses">
+        <div class="ind-card-label">Retail & Service Businesses</div>
+      </div>
+      <div class="ind-card">
+        <img class="ind-card-img" src="https://images.unsplash.com/photo-1531058240690-006c446962d8?w=600&h=260&fit=crop&auto=format&q=80" alt="Owner-Managed Companies">
+        <div class="ind-card-label">Owner&#8209;Managed Companies</div>
+      </div>
     </div>
   </div>
 </section>
