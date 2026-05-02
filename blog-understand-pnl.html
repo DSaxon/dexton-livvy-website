@@ -256,11 +256,53 @@
     footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
     footer a:hover { color: rgba(255,255,255,0.85); }
 
+    /* HAMBURGER */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 6px;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--slate); border-radius: 2px;
+      transition: transform 0.25s, opacity 0.2s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav {
+      display: none; position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--white); border-bottom: 1px solid var(--slate-100);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      z-index: 99; flex-direction: column; padding: 0.75rem 1.5rem 1.5rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-size: 0.95rem; font-weight: 500; color: var(--slate);
+      text-decoration: none; padding: 0.8rem 0;
+      border-bottom: 1px solid var(--slate-100); transition: color 0.15s;
+    }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-nav a:last-of-type { border-bottom: none; }
+    .mobile-nav .mob-cta {
+      margin-top: 0.75rem; background: var(--orange); color: var(--white) !important;
+      text-align: center; padding: 0.85rem; border-radius: 8px;
+      font-weight: 700; border-bottom: none;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .article-hero-img img { height: 260px; }
       .article-header h1 { font-size: 1.85rem; }
       .article-body h2 { font-size: 1.3rem; }
+      .article-wrap { padding: 2.5rem 1.5rem 3rem; }
+    }
+    @media (max-width: 480px) {
+      .article-hero-img img { height: 200px; }
+      .article-header h1 { font-size: 1.6rem; }
+      .article-wrap { padding: 2rem 1.25rem 3rem; }
     }
   </style>
 </head>
@@ -281,8 +323,21 @@
       <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
       <li><a href="https://www.runpayroll.com/SPF/Login/Auth1.aspx" target="_blank" rel="noopener" class="nav-portal">Payroll Portal</a></li>
     </ul>
+    <button class="nav-hamburger" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html#services">Services</a>
+  <a href="index.html#packages">Packages</a>
+  <a href="index.html#industries">Industries</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#faq">FAQ</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#contact" class="mob-cta">Get Started</a>
+</div>
 
 <div class="article-hero-img">
   <img src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=1400&h=500&fit=crop&auto=format&q=80" alt="Professional reviewing a financial report on a tablet">
@@ -371,5 +426,17 @@
   </div>
 </footer>
 
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+    navToggle.classList.remove('open');
+    mobileNav.classList.remove('open');
+  }));
+</script>
 </body>
 </html>
