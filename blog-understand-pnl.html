@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Your P&L Is Actually Telling You | Dexton-Livvy LLC</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="description" content="Your Profit & Loss statement is more than a tax document. Here's how to actually read your P&L and use it to make smarter business decisions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-500: #64748b;
+      --slate-300: #cbd5e1;
+      --slate-100: #f1f5f9;
+      --orange: #e8490d;
+      --orange-light: #f06030;
+      --orange-pale: #fde8df;
+      --gray-brand: #767676;
+      --white: #ffffff;
+      --off: #f8fafc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--slate);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo img.logo-full { height: 40px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--slate-500);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-links a:hover { background: var(--slate-100); color: var(--slate); }
+    .nav-links a.active { color: var(--slate); font-weight: 600; }
+
+    .nav-cta {
+      background: var(--orange) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.1rem !important;
+    }
+
+    .nav-cta:hover { background: var(--orange-light) !important; color: var(--white) !important; }
+
+    .nav-portal {
+      border: 1.5px solid var(--slate-300) !important;
+      color: var(--slate-700) !important;
+      padding: 0.4rem 0.85rem !important;
+      font-size: 0.8rem !important;
+    }
+
+    .nav-portal:hover { border-color: var(--slate-500) !important; background: var(--slate-100) !important; color: var(--slate) !important; }
+
+    /* ARTICLE LAYOUT */
+    .article-wrap {
+      padding: 7rem 2rem 4rem;
+      background: var(--white);
+    }
+
+    .article-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--slate-500);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.15s;
+    }
+
+    .back-link:hover { color: var(--orange); }
+
+    .category-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--orange);
+      background: var(--orange-pale);
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .article-header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      line-height: 1.2;
+      color: var(--slate);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--slate-500);
+      margin-bottom: 1.75rem;
+    }
+
+    .meta-dot { color: var(--slate-300); }
+
+    .article-divider {
+      border: none;
+      border-top: 1px solid var(--slate-100);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ARTICLE BODY */
+    .article-body p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--slate-700);
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--slate);
+      font-weight: 400;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .callout-box {
+      background: var(--off);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .callout-box p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+      color: var(--slate-700);
+    }
+
+    .callout-box strong { color: var(--slate); }
+
+    /* ARTICLE CTA */
+    .article-cta {
+      background: var(--off);
+      border: 1px solid var(--slate-100);
+      border-top: 3px solid var(--orange);
+      border-radius: 12px;
+      padding: 2rem 2rem 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .article-cta h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--slate);
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .article-cta p {
+      font-size: 0.9rem;
+      color: var(--slate-500);
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-orange {
+      background: var(--orange);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.15s, transform 0.1s;
+      font-size: 0.9rem;
+    }
+
+    .btn-orange:hover { background: var(--orange-light); transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      background: #2b2b2b;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-inner { max-width: 1140px; margin: 0 auto; }
+    .footer-logo { margin-bottom: 1rem; }
+    .footer-logo img { height: 36px; width: auto; opacity: 0.85; }
+    footer p { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,0.85); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .article-header h1 { font-size: 1.85rem; }
+      .article-body h2 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="images/header-logo.png" class="logo-full" style="height:40px" alt="Dexton-Livvy LLC" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#packages">Packages</a></li>
+      <li><a href="index.html#industries">Industries</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
+      <li><a href="https://www.runpayroll.com/SPF/Login/Auth1.aspx" target="_blank" rel="noopener" class="nav-portal">Payroll Portal</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="article-wrap">
+  <div class="article-inner">
+
+    <a href="blog.html" class="back-link">&#8592; Back to Blog</a>
+
+    <div class="article-header">
+      <span class="category-pill">Financial Reporting</span>
+      <h1>What Your P&amp;L Is Actually Telling You</h1>
+      <div class="article-meta">
+        <span><strong>Dexton-Livvy LLC</strong></span>
+        <span class="meta-dot">&bull;</span>
+        <span>May 2025</span>
+      </div>
+    </div>
+
+    <hr class="article-divider" />
+
+    <div class="article-body">
+
+      <p>Most small business owners see their Profit &amp; Loss statement once a year, right before tax season. They hand it to their CPA, nod along through the conversation, and file it away until next April. That's a missed opportunity — because your P&amp;L is one of the most useful tools in your business, if you know how to read it.</p>
+
+      <h2>What a P&amp;L is — and what it isn't</h2>
+
+      <p>A Profit &amp; Loss statement (also called an income statement) shows your revenue, your expenses, and your net profit or loss over a specific period of time — a month, a quarter, a year. It's a snapshot of how your business performed financially during that window.</p>
+
+      <p>What it isn't: a cash flow statement. Your P&amp;L can show a profit even when your bank account is empty. That's because profit is an accounting concept that follows when income is earned and when expenses are incurred — not necessarily when cash actually moves. Understanding this distinction matters a lot if you're trying to make sense of why the numbers don't always feel real.</p>
+
+      <h2>The difference between revenue and profit</h2>
+
+      <p>Revenue is the total money coming into the business before anything is taken out. Profit is what's left after expenses. These are not the same thing, and conflating them is one of the most common mistakes business owners make.</p>
+
+      <p>A business with $400,000 in annual revenue can still lose money. A business with $80,000 in revenue can be healthy and generating real take-home income. Revenue is a vanity number without context. Profit — and specifically, profit margin — is the number that actually tells you whether the business model works.</p>
+
+      <div class="callout-box">
+        <p><strong>Quick math:</strong> If you bring in $10,000 in revenue and spend $8,500 to deliver your service, your gross profit is $1,500. That's a 15% gross margin. Whether that's healthy depends entirely on your industry and cost structure — and your P&amp;L makes this visible.</p>
+      </div>
+
+      <h2>What gross margin tells you about your pricing</h2>
+
+      <p>Gross margin is the percentage of revenue left after subtracting the direct costs of delivering your product or service — things like materials, subcontractors, or direct labor. It lives near the top of your P&amp;L, before operating expenses like rent, software, or your own salary.</p>
+
+      <p>A low gross margin often signals a pricing problem. If you're charging $500 for a service that costs you $450 to deliver, you don't have an expenses problem — you have a pricing problem. Your P&amp;L reveals this directly. Once you can see your gross margin clearly, you can make deliberate decisions about where to adjust rates, reduce costs, or drop unprofitable service lines.</p>
+
+      <h2>How operating expenses affect the bottom line</h2>
+
+      <p>Operating expenses are the costs of running the business that don't tie directly to individual jobs or clients — things like accounting software, marketing, insurance, subscriptions, and administrative payroll. These live below gross profit on your P&amp;L.</p>
+
+      <p>A healthy business keeps operating expenses in check relative to revenue. If your gross profit is solid but your net income is still low, operating expenses are usually the culprit. Your P&amp;L lets you see exactly which categories are eating into profitability — and whether any of them have crept up without you noticing.</p>
+
+      <h2>Using your P&amp;L to make actual business decisions</h2>
+
+      <p>Here's where most small business owners leave money on the table: they treat the P&amp;L as a reporting document rather than a decision-making tool. When you review it regularly — monthly, not just at year-end — it becomes something you can actually act on.</p>
+
+      <p>Are revenue numbers trending up while margins are declining? That might mean your costs are rising faster than your prices. Is one expense category unusually high this month? That's worth investigating before it becomes a pattern. Are you consistently profitable in some months but not others? That seasonality is useful information for planning purposes.</p>
+
+      <p>The goal is to stop treating your P&amp;L as paperwork for your CPA and start treating it as one of the primary ways you understand your own business. That shift only happens when your books are clean enough to produce reports you trust — and when you're looking at them consistently enough to notice what's changing.</p>
+
+      <hr class="article-divider" style="margin-top: 2.5rem;" />
+
+      <p>If your P&amp;L is generating more questions than answers — or if you're not sure your reports are accurate to begin with — that's exactly the kind of thing a professional bookkeeper addresses.</p>
+
+    </div>
+
+    <!-- ARTICLE CTA -->
+    <div class="article-cta">
+      <h3>Want cleaner books? Let's talk.</h3>
+      <p>We'll get your books in order so your financial reports actually mean something. Contact Dexton-Livvy LLC to get started.</p>
+      <a href="index.html#contact" class="btn-orange">Get Started Today</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/footer-logo-white.png" alt="Dexton-Livvy LLC" />
+    </div>
+    <p>&copy; 2025 Dexton-Livvy LLC &middot; <a href="mailto:dsaxon@dexton-livvy.com">dsaxon@dexton-livvy.com</a> &middot; dexton-livvy.com</p>
+  </div>
+</footer>
+
+</body>
+</html>

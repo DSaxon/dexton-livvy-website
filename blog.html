@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Financial Insights for Small Business Owners | Dexton-Livvy LLC</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="description" content="Practical guidance on bookkeeping, financial reporting, and running a cleaner business — from the team at Dexton-Livvy LLC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-500: #64748b;
+      --slate-300: #cbd5e1;
+      --slate-100: #f1f5f9;
+      --orange: #e8490d;
+      --orange-light: #f06030;
+      --orange-pale: #fde8df;
+      --gray-brand: #767676;
+      --white: #ffffff;
+      --off: #f8fafc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--slate);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo img.logo-full { height: 40px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--slate-500);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-links a:hover { background: var(--slate-100); color: var(--slate); }
+    .nav-links a.active { color: var(--slate); font-weight: 600; }
+
+    .nav-cta {
+      background: var(--orange) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.1rem !important;
+    }
+
+    .nav-cta:hover { background: var(--orange-light) !important; color: var(--white) !important; }
+
+    .nav-portal {
+      border: 1.5px solid var(--slate-300) !important;
+      color: var(--slate-700) !important;
+      padding: 0.4rem 0.85rem !important;
+      font-size: 0.8rem !important;
+    }
+
+    .nav-portal:hover { border-color: var(--slate-500) !important; background: var(--slate-100) !important; color: var(--slate) !important; }
+
+    /* HERO */
+    .blog-hero {
+      padding: 7rem 2rem 4rem;
+      background: var(--off);
+      text-align: center;
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    .blog-hero-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .blog-hero .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .blog-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.75rem;
+      line-height: 1.2;
+      color: var(--slate);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .blog-hero p {
+      font-size: 1.05rem;
+      color: var(--slate-500);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* BLOG GRID */
+    .blog-section {
+      padding: 4rem 2rem 5rem;
+      background: var(--white);
+    }
+
+    .blog-section-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .blog-card {
+      background: var(--white);
+      border: 1px solid var(--slate-100);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .blog-card:hover {
+      box-shadow: 0 8px 32px -8px rgba(15,23,42,0.12);
+      border-color: var(--slate-300);
+    }
+
+    .category-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--orange);
+      background: var(--orange-pale);
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .blog-card h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      line-height: 1.3;
+      color: var(--slate);
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-card p {
+      font-size: 0.9rem;
+      color: var(--slate-500);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--slate-100);
+    }
+
+    .card-byline {
+      font-size: 0.78rem;
+      color: var(--slate-500);
+    }
+
+    .card-byline strong { color: var(--slate-700); font-weight: 600; }
+
+    .read-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--orange);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: gap 0.15s;
+    }
+
+    .read-link:hover { gap: 0.5rem; }
+
+    /* CTA BAND */
+    .cta-band {
+      background: var(--orange);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .cta-band-inner {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .cta-band h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--white);
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-band p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--orange);
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .btn-white:hover { background: var(--off); transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      background: #2b2b2b;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-inner { max-width: 1140px; margin: 0 auto; }
+
+    .footer-logo { margin-bottom: 1rem; }
+    .footer-logo img { height: 36px; width: auto; opacity: 0.85; }
+
+    footer p { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,0.85); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+
+      .blog-hero h1 { font-size: 2rem; }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="images/header-logo.png" class="logo-full" style="height:40px" alt="Dexton-Livvy LLC" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#packages">Packages</a></li>
+      <li><a href="index.html#industries">Industries</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
+      <li><a href="https://www.runpayroll.com/SPF/Login/Auth1.aspx" target="_blank" rel="noopener" class="nav-portal">Payroll Portal</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="blog-hero-inner">
+    <span class="eyebrow">From the Desk of Dexton-Livvy</span>
+    <h1>Financial Insights</h1>
+    <p>Practical guidance on bookkeeping, financial reporting, and running a cleaner business.</p>
+  </div>
+</section>
+
+<!-- BLOG GRID -->
+<section class="blog-section">
+  <div class="blog-section-inner">
+    <div class="blog-grid">
+
+      <!-- Card 1 -->
+      <article class="blog-card">
+        <span class="category-pill">Bookkeeping</span>
+        <h2>5 Signs Your Books Need a Cleanup</h2>
+        <p>If you're avoiding your accounting software, can't remember the last time you reconciled, or dread tax season every year — your books are trying to tell you something. Here's how to know when it's time for a cleanup.</p>
+        <div class="card-meta">
+          <div class="card-byline">
+            <strong>Dexton-Livvy LLC</strong><br />May 2025
+          </div>
+          <a href="blog-signs-cleanup.html" class="read-link">Read Article &#8594;</a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="blog-card">
+        <span class="category-pill">Financial Reporting</span>
+        <h2>What Your P&amp;L Is Actually Telling You</h2>
+        <p>Most small business owners glance at their Profit &amp; Loss statement once a year and hand it to their CPA. But your P&amp;L is one of the most useful tools in your business — if you know how to read it.</p>
+        <div class="card-meta">
+          <div class="card-byline">
+            <strong>Dexton-Livvy LLC</strong><br />May 2025
+          </div>
+          <a href="blog-understand-pnl.html" class="read-link">Read Article &#8594;</a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="blog-card">
+        <span class="category-pill">Tax Preparation</span>
+        <h2>Why Your Books Should Be Clean Before Tax Season — Not During It</h2>
+        <p>Scrambling to organize a year's worth of transactions in March or April costs you more than just time. Disorganized books can mean missed deductions, higher CPA fees, and zero ability to plan ahead.</p>
+        <div class="card-meta">
+          <div class="card-byline">
+            <strong>Dexton-Livvy LLC</strong><br />April 2025
+          </div>
+          <a href="blog-clean-books-tax.html" class="read-link">Read Article &#8594;</a>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="blog-card">
+        <span class="category-pill">Business Basics</span>
+        <h2>Bookkeeper vs. Accountant: What's the Difference and Which Do You Need?</h2>
+        <p>People use the words interchangeably, but bookkeepers and accountants do very different things. Understanding the distinction can help you build the right financial team — and avoid paying for things you don't need yet.</p>
+        <div class="card-meta">
+          <div class="card-byline">
+            <strong>Dexton-Livvy LLC</strong><br />April 2025
+          </div>
+          <a href="blog-bookkeeper-vs-accountant.html" class="read-link">Read Article &#8594;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <h2>Ready to get your books in order?</h2>
+    <p>Stop guessing and start knowing. We'll set up a clean, consistent system that works for your business — month after month.</p>
+    <a href="index.html#contact" class="btn-white">Get Started Today</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/footer-logo-white.png" alt="Dexton-Livvy LLC" />
+    </div>
+    <p>&copy; 2025 Dexton-Livvy LLC &middot; <a href="mailto:dsaxon@dexton-livvy.com">dsaxon@dexton-livvy.com</a> &middot; dexton-livvy.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
