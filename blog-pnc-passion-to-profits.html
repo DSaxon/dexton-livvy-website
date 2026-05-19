@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Passion to Profits: Lessons from an Inspiring Panel at PNC | Dexton-Livvy LLC</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="description" content="We had the privilege of attending PNC's From Passion to Profits event featuring four extraordinary women entrepreneurs sharing their journeys, their businesses, and how they overcame adversity." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-500: #64748b;
+      --slate-300: #cbd5e1;
+      --slate-100: #f1f5f9;
+      --orange: #e8490d;
+      --orange-light: #f06030;
+      --orange-pale: #fde8df;
+      --gray-brand: #767676;
+      --white: #ffffff;
+      --off: #f8fafc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--slate);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo img.logo-full { height: 40px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--slate-500);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-links a:hover { background: var(--slate-100); color: var(--slate); }
+    .nav-links a.active { color: var(--slate); font-weight: 600; }
+
+    .nav-cta {
+      background: var(--orange) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.1rem !important;
+    }
+
+    .nav-cta:hover { background: var(--orange-light) !important; color: var(--white) !important; }
+
+    .nav-portal {
+      border: 1.5px solid var(--slate-300) !important;
+      color: var(--slate-700) !important;
+      padding: 0.4rem 0.85rem !important;
+      font-size: 0.8rem !important;
+    }
+
+    .nav-portal:hover { border-color: var(--slate-500) !important; background: var(--slate-100) !important; color: var(--slate) !important; }
+
+    /* ARTICLE HERO IMAGE */
+    .article-hero-img { margin-top: 68px; }
+    .article-hero-img img { width: 100%; height: 400px; object-fit: cover; object-position: center 50%; display: block; }
+
+    /* ARTICLE LAYOUT */
+    .article-wrap {
+      padding: 3rem 2rem 4rem;
+      background: var(--white);
+    }
+
+    .article-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--slate-500);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.15s;
+    }
+
+    .back-link:hover { color: var(--orange); }
+
+    .category-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--orange);
+      background: var(--orange-pale);
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .article-header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      line-height: 1.2;
+      color: var(--slate);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--slate-500);
+      margin-bottom: 1.75rem;
+    }
+
+    .meta-dot { color: var(--slate-300); }
+
+    .article-divider {
+      border: none;
+      border-top: 1px solid var(--slate-100);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ARTICLE BODY */
+    .article-body p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--slate-700);
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--slate);
+      font-weight: 400;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .panelist-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .article-body h2.panelist-name {
+      margin-top: 0.25rem;
+    }
+
+    .article-body .panelist-title {
+      font-size: 0.85rem;
+      color: var(--slate-500);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      margin-top: -0.25rem;
+    }
+
+    .inline-photo {
+      width: 100%;
+      border-radius: 10px;
+      margin: 2rem 0;
+      display: block;
+      object-fit: cover;
+      height: 340px;
+    }
+
+    .callout-box {
+      background: var(--off);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .callout-box p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+      color: var(--slate-700);
+    }
+
+    .callout-box strong { color: var(--slate); }
+
+    /* ARTICLE CTA */
+    .article-cta {
+      background: var(--off);
+      border: 1px solid var(--slate-100);
+      border-top: 3px solid var(--orange);
+      border-radius: 12px;
+      padding: 2rem 2rem 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .article-cta h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--slate);
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .article-cta p {
+      font-size: 0.9rem;
+      color: var(--slate-500);
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-orange {
+      background: var(--orange);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.15s, transform 0.1s;
+      font-size: 0.9rem;
+    }
+
+    .btn-orange:hover { background: var(--orange-light); transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      background: #2b2b2b;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-inner { max-width: 1140px; margin: 0 auto; }
+    .footer-logo { margin-bottom: 1rem; }
+    .footer-logo img { height: 36px; width: auto; opacity: 0.85; }
+    footer p { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,0.85); }
+
+    /* HAMBURGER */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 6px;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--slate); border-radius: 2px;
+      transition: transform 0.25s, opacity 0.2s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav {
+      display: none; position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--white); border-bottom: 1px solid var(--slate-100);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      z-index: 99; flex-direction: column; padding: 0.75rem 1.5rem 1.5rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-size: 0.95rem; font-weight: 500; color: var(--slate);
+      text-decoration: none; padding: 0.8rem 0;
+      border-bottom: 1px solid var(--slate-100); transition: color 0.15s;
+    }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-nav a:last-of-type { border-bottom: none; }
+    .mobile-nav .mob-cta {
+      margin-top: 0.75rem; background: var(--orange); color: var(--white) !important;
+      text-align: center; padding: 0.85rem; border-radius: 8px;
+      font-weight: 700; border-bottom: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .article-hero-img img { height: 260px; }
+      .article-header h1 { font-size: 1.85rem; }
+      .article-body h2 { font-size: 1.3rem; }
+      .article-wrap { padding: 2.5rem 1.5rem 3rem; }
+      .inline-photo { height: 240px; }
+    }
+    @media (max-width: 480px) {
+      .article-hero-img img { height: 200px; }
+      .article-header h1 { font-size: 1.6rem; }
+      .article-wrap { padding: 2rem 1.25rem 3rem; }
+      .inline-photo { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="images/header-logo.png" class="logo-full" style="height:40px" alt="Dexton-Livvy LLC" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#packages">Packages</a></li>
+      <li><a href="index.html#industries">Industries</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
+      <li><a href="https://www.runpayroll.com/SPF/Login/Auth1.aspx" target="_blank" rel="noopener" class="nav-portal">Payroll Portal</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html#services">Services</a>
+  <a href="index.html#packages">Packages</a>
+  <a href="index.html#industries">Industries</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#faq">FAQ</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#contact" class="mob-cta">Get Started</a>
+</div>
+
+<div class="article-hero-img">
+  <img src="images/pnc-event-5331.jpg" alt="Panel discussion at PNC From Passion to Profits event" />
+</div>
+
+<div class="article-wrap">
+  <div class="article-inner">
+
+    <a href="blog.html" class="back-link">&#8592; Back to Blog</a>
+
+    <div class="article-header">
+      <span class="category-pill">Community</span>
+      <h1>From Passion to Profits: Lessons from an Inspiring Panel at PNC</h1>
+      <div class="article-meta">
+        <span><strong>Dexton-Livvy LLC</strong></span>
+        <span class="meta-dot">&bull;</span>
+        <span>May 2026</span>
+      </div>
+    </div>
+
+    <hr class="article-divider" />
+
+    <div class="article-body">
+
+      <p>We had the privilege of attending <strong>From Passion to Profits: Inspiring Entrepreneurial Success</strong>, an event hosted by PNC Bank that brought together a remarkable group of women entrepreneurs for an afternoon of honest conversation, connection, and inspiration. The energy in the room was electric from the moment we walked in — and the panel that followed delivered exactly what the title promised.</p>
+
+      <p>Four founders took the stage and did something that doesn't happen often enough in business circles: they got real. They talked about where their businesses started, the walls they ran into along the way, and what it actually took to push through. As a firm that works closely with small business owners every day, we left with a deep appreciation for every one of their journeys — and a few lessons worth sharing.</p>
+
+      <img src="images/pnc-event-networking.jpg" alt="Networking and refreshments at the PNC From Passion to Profits event" class="inline-photo" />
+
+      <span class="panelist-label">Panelist 1</span>
+      <h2 class="panelist-name">Jessica Aiello</h2>
+      <p class="panelist-title">Founder &amp; CEO, TCS Interpreting</p>
+
+      <p>Jessica built TCS Interpreting into a company that removes one of the most fundamental barriers in human communication — language. Her work connects people across linguistic divides in some of the most high-stakes settings imaginable: healthcare, legal proceedings, education, and beyond. What struck us most about her story was how deeply mission-driven the business is from its foundation. For Jessica, interpretation isn't just a service — it's access. It's the difference between someone understanding what's happening to them and being left in the dark.</p>
+
+      <p>Building a service business rooted in that kind of purpose requires both heart and structure. Hearing her speak about how she's scaled TCS Interpreting while holding onto that mission reminded us that the most durable businesses are the ones built around something that genuinely matters.</p>
+
+      <span class="panelist-label">Panelist 2</span>
+      <h2 class="panelist-name">Stephanie Chon</h2>
+      <p class="panelist-title">Founder &amp; CEO, Balian Springs</p>
+
+      <p>Stephanie's journey with Balian Springs is a testament to what it takes to bring a physical product to market. The consumer packaged goods space is brutally competitive — shelf space is hard to win, distribution is expensive, and the road from concept to retail is filled with setbacks that would stop most people cold. Stephanie talked about navigating those challenges with persistence and the willingness to keep adapting without losing sight of what made Balian Springs worth fighting for in the first place.</p>
+
+      <p>Her story resonated with us because so many of our clients in product-based businesses face exactly that tension — the push to grow faster versus the need to build sustainably. Stephanie is doing both.</p>
+
+      <span class="panelist-label">Panelist 3</span>
+      <h2 class="panelist-name">Beth Johnson</h2>
+      <p class="panelist-title">Founder &amp; CEO, RP3</p>
+
+      <p>Beth has built RP3 into one of the most respected independent agencies in the DC region — a creative firm known for the quality of its work and the depth of its client relationships. What she shared about building a business in a competitive, relationship-driven industry was candid and refreshing. She talked about the moments that tested her resolve: the pitches that didn't go her way, the pivots that were necessary even when they were painful, and the importance of staying true to what you stand for even when it would have been easier to compromise.</p>
+
+      <div class="callout-box">
+        <p><strong>One theme that ran through every panelist's story:</strong> adversity wasn't the exception — it was the rule. What separated them wasn't the absence of hard times. It was the decision, made over and over again, to keep going anyway.</p>
+      </div>
+
+      <p>For anyone running a service-based business, Beth's perspective on building trust and reputation over time was worth the price of admission alone.</p>
+
+      <span class="panelist-label">Panelist 4</span>
+      <h2 class="panelist-name">Hannah Pollack</h2>
+      <p class="panelist-title">Founder &amp; CEO, Nightingale Ice Cream</p>
+
+      <p>Hannah brought a warmth and genuineness to the stage that was immediately disarming. Nightingale Ice Cream isn't just a dessert brand — it's a labor of love built from a deep passion for craft, quality, and the experience of bringing joy to people through food. Food businesses are notoriously difficult — thin margins, complex logistics, a relentless pressure to produce consistently at scale. Hannah talked about what it took to build something special in that environment without cutting corners on what makes it special.</p>
+
+      <p>Her story is a reminder that passion alone doesn't make a business — but without it, the hard days don't have a reason. The businesses that last are the ones where the founder's "why" is strong enough to outlast the inevitable rough patches.</p>
+
+      <hr class="article-divider" style="margin-top: 2.5rem;" />
+
+      <h2>What We Took Away</h2>
+
+      <p>Events like this are why community matters in business. Four founders, four very different industries, four unique paths — but the same core story underneath all of them: a clear sense of purpose, the resilience to absorb setbacks, and the discipline to keep building even when no one is watching.</p>
+
+      <p>At Dexton-Livvy, we work with small business owners every day who are writing versions of these same stories. The financial side of running a business — the bookkeeping, the cleanup, the month-end close — can feel like the least inspiring part of entrepreneurship. But it's the foundation that everything else stands on. Clean books give you the clarity to make the moves that matter. They free you to focus on the passion that started it all.</p>
+
+      <p>Thank you to PNC Bank for putting together an afternoon that reminded us why the work we all do is worth doing. And thank you to Jessica, Stephanie, Beth, and Hannah for sharing your stories so generously. You inspired the room — and you inspired us.</p>
+
+    </div>
+
+    <div class="article-cta">
+      <h3>Is your financial foundation as strong as your vision?</h3>
+      <p>The best entrepreneurs build on solid ground. Let Dexton-Livvy help you get your books in order so you can focus on growing.</p>
+      <a href="index.html#contact" class="btn-orange">Get Started Today</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/footer-logo-white.png" alt="Dexton-Livvy LLC" />
+    </div>
+    <p>&copy; 2025 Dexton-Livvy LLC &middot; <a href="mailto:dsaxon@dexton-livvy.com">dsaxon@dexton-livvy.com</a> &middot; dexton-livvy.com</p>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+    navToggle.classList.remove('open');
+    mobileNav.classList.remove('open');
+  }));
+</script>
+</body>
+</html>
