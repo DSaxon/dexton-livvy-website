@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dexton-Livvy LLC — Financial Insights for Small Business Owners</title>
+    <link>https://dexton-livvy.com/blog.html</link>
+    <description>Practical guidance on bookkeeping, financial reporting, and running a cleaner business — from the team at Dexton-Livvy LLC.</description>
+    <language>en-us</language>
+    <managingEditor>dsaxon@dexton-livvy.com (Dexton-Livvy LLC)</managingEditor>
+    <webMaster>dsaxon@dexton-livvy.com (Dexton-Livvy LLC)</webMaster>
+    <lastBuildDate>Mon, 19 May 2026 09:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dexton-livvy.com/blog-feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>From Passion to Profits: Lessons from an Inspiring Panel at PNC</title>
+      <link>https://dexton-livvy.com/blog-pnc-passion-to-profits.html</link>
+      <description>We had the privilege of attending PNC&apos;s From Passion to Profits event featuring four extraordinary women entrepreneurs sharing their journeys, their businesses, and how they overcame adversity.</description>
+      <pubDate>Mon, 19 May 2026 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dexton-livvy.com/blog-pnc-passion-to-profits.html</guid>
+      <category>Community</category>
+    </item>
+
+    <item>
+      <title>5 Signs Your Books Need a Cleanup</title>
+      <link>https://dexton-livvy.com/blog-signs-cleanup.html</link>
+      <description>Avoiding your accounting software? Can&apos;t remember the last reconciliation? Here are five clear signs your books need a cleanup — and what to do about it.</description>
+      <pubDate>Thu, 15 May 2025 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dexton-livvy.com/blog-signs-cleanup.html</guid>
+      <category>Bookkeeping</category>
+    </item>
+
+    <item>
+      <title>What Your P&amp;L Is Actually Telling You</title>
+      <link>https://dexton-livvy.com/blog-understand-pnl.html</link>
+      <description>Your Profit &amp; Loss statement is more than a tax document. Here&apos;s how to actually read your P&amp;L and use it to make smarter business decisions.</description>
+      <pubDate>Thu, 08 May 2025 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dexton-livvy.com/blog-understand-pnl.html</guid>
+      <category>Financial Reporting</category>
+    </item>
+
+    <item>
+      <title>Clean Books = Easier Tax Season</title>
+      <link>https://dexton-livvy.com/blog-clean-books-tax.html</link>
+      <description>Scrambling to clean up your books during tax season costs you money, misses deductions, and prevents real tax planning. Here&apos;s why monthly bookkeeping changes everything.</description>
+      <pubDate>Thu, 01 May 2025 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dexton-livvy.com/blog-clean-books-tax.html</guid>
+      <category>Bookkeeping</category>
+    </item>
+
+    <item>
+      <title>Bookkeeper vs. Accountant: What&apos;s the Difference and Which Do You Need?</title>
+      <link>https://dexton-livvy.com/blog-bookkeeper-vs-accountant.html</link>
+      <description>Bookkeepers and accountants do different things. Understanding the distinction helps small business owners build the right financial team without overpaying.</description>
+      <pubDate>Tue, 15 Apr 2025 09:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dexton-livvy.com/blog-bookkeeper-vs-accountant.html</guid>
+      <category>Business Basics</category>
+    </item>
+
+  </channel>
+</rss>
