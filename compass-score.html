@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What Your P&L Is Actually Telling You | Dexton-Livvy LLC</title>
-<meta name="description" content="Your Profit &amp; Loss statement is more than a tax document. Here's how to actually read your P&amp;L and use it to make smarter business decisions.">
+<title>The Compass Score™ — Executive Readiness, Scored | Dexton-Livvy LLC</title>
+<meta name="description" content="The Compass Score™ is a 0–100 measure of executive readiness across six points — Direction, Foundation, Visibility, Decision, Capacity, and Execution. Get yours in a Business Navigation Review™.">
 <meta property="og:title" content="Dexton-Livvy LLC — Financial Intelligence for Small Business">
 <meta property="og:description" content="We turn your financial records into a route you can actually follow. Compass Score™ · Financial Command Center™ · Executive Guidance™.">
 <meta property="og:type" content="website">
@@ -290,102 +290,82 @@
   </header>
 
   <style>
-    .article-wrap{max-width:760px;margin:0 auto;padding:0 24px}
-    .art-top{padding:52px 0 6px}
-    .back-link{display:inline-block;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:22px;transition:color .16s}
-    .back-link:hover{color:var(--accent)}
-    .art-cat{display:inline-block;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:100px;padding:4px 12px}
-    .art-top h1{font-family:var(--font-display);font-weight:400;color:var(--heading);font-size:clamp(2rem,4.6vw,3rem);line-height:1.08;margin:16px 0 0;text-wrap:balance}
-    .art-meta{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:16px}
-    .art-cover{max-width:940px;margin:34px auto 0;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
-    .art-cover img{width:100%;height:auto;display:block}
-    .article-body{padding:14px 0 6px;font-size:1.07rem;line-height:1.8;color:var(--text)}
-    .article-body p{margin:0 0 22px}
-    .article-body h2{font-family:var(--font-display);font-weight:400;color:var(--heading);font-size:1.7rem;line-height:1.15;margin:40px 0 14px}
-    .article-body h3{font-family:var(--font-display);font-weight:400;color:var(--heading);font-size:1.32rem;margin:30px 0 10px}
-    .article-body ul,.article-body ol{margin:0 0 22px;padding-left:24px}
-    .article-body li{margin:0 0 10px;line-height:1.7}
-    .article-body a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
-    .article-body strong{color:var(--heading);font-weight:600}
-    .article-body blockquote{border-left:3px solid var(--accent);padding:2px 0 2px 20px;margin:26px 0;color:var(--muted);font-style:italic}
-    .article-body img{max-width:100%;height:auto;border-radius:12px;margin:10px 0}
-    .callout-box{background:var(--surface);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 22px;margin:28px 0}
-    .callout-box p{margin:0;color:var(--text)}
-    .callout-box strong{color:var(--heading);font-weight:600}
-    .article-body .article-divider{border:none;border-top:1px solid var(--line);margin:36px 0}
-    .article-body .inline-photo{width:100%;height:340px;object-fit:cover;border-radius:12px;margin:26px 0;display:block}
-    @media(max-width:600px){.article-body .inline-photo{height:220px}}
-    .article-body .panelist-label{display:block;font-family:var(--font-mono);font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin:38px 0 4px}
-    .article-body h2.panelist-name{margin:4px 0 0;font-size:1.5rem}
-    .article-body .panelist-title{font-size:.9rem;color:var(--muted);font-weight:500;margin:4px 0 16px}
-    .article-body .sign-num{color:var(--accent);font-style:normal}
-    /* index */
-    .blog-hero{padding:56px 0 10px}
-    .blog-hero h1{font-family:var(--font-display);font-weight:400;color:var(--heading);font-size:clamp(2.1rem,5vw,3.2rem);line-height:1.05;margin:12px 0 0;text-wrap:balance}
-    .blog-hero p{color:var(--muted);font-size:1.08rem;line-height:1.6;max-width:56ch;margin:16px 0 0}
-    .bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:4px}
-    @media(max-width:900px){.bgrid{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.bgrid{grid-template-columns:1fr}}
-    .bcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:transform .16s,box-shadow .16s}
-    .bcard:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(20,40,63,.10)}
-    .bcard-img{width:100%;height:194px;object-fit:cover;display:block;background:var(--surface)}
-    .bcard-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
-    .bcat{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-    .bcard h2{font-family:var(--font-display);font-weight:400;color:var(--heading);font-size:1.3rem;line-height:1.16;margin:11px 0 8px}
-    .bcard p{color:var(--muted);font-size:.92rem;line-height:1.5;margin:0 0 16px}
-    .bcard .bmeta{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:auto}
-    .bcard .read{font-family:var(--font-body);font-weight:600;font-size:.88rem;color:var(--accent);margin-top:6px}
+    .page-hero{padding:60px 0 6px}
+    .page-hero h1{font-family:var(--font-display);font-weight:400;color:var(--heading);font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.05;margin:12px 0 0;text-wrap:balance}
+    .page-hero .lede{color:var(--muted);font-size:1.1rem;line-height:1.65;max-width:60ch;margin:18px 0 0}
+    .bands{border-top:1px solid var(--line);margin-top:8px}
+    .band-row{display:grid;grid-template-columns:96px 1fr auto;gap:22px;align-items:baseline;padding:17px 0;border-bottom:1px solid var(--line)}
+    .band-row .rng{font-family:var(--font-mono);font-size:.92rem;color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
+    .band-row .nm{font-family:var(--font-display);color:var(--heading);font-size:1.18rem}
+    .band-row .ds{color:var(--muted);font-size:.92rem;text-align:right;max-width:42ch}
+    @media(max-width:680px){.band-row{grid-template-columns:1fr;gap:4px}.band-row .ds{text-align:left}}
   </style>
-  <section class="art-top">
-    <div class="article-wrap">
-      <a class="back-link" href="blog.html">&#8592; Back to Blog</a>
-      <div><span class="art-cat">Financial Reporting</span></div>
-      <h1>What Your P&amp;L Is Actually Telling You</h1>
-      <div class="art-meta">Dexton-Livvy LLC • May 2025</div>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">The Instrument</span>
+      <h1>The Compass Score&trade;</h1>
+      <p class="lede">One number, 0&ndash;100, for how ready your business is to make its next move &mdash; measured across six points of executive readiness. It's a conversation starter, never a grade.</p>
+      <div class="cta-row" style="margin-top:26px">
+        <a class="btn btn-primary" href="https://admin.dexton-livvy.com/book/ba9640fa17a84bddecb58d37963572e8">Get your Compass Score&trade; &rarr;</a>
+        <a class="btn btn-ghost" href="platform.html">See it in the Command Center</a>
+      </div>
     </div>
   </section>
-  <div class="wrap"><div class="art-cover"><img src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=1400&h=500&fit=crop&auto=format&q=80" alt="What Your P&amp;L Is Actually Telling You"></div></div>
+
+  <section id="compass">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Six bearings</span><h2>What the score measures.</h2></div>
+      <div class="cpoints">
+        <div class="point"><div class="n">N 01 &middot; Direction</div><h3>Direction</h3><p>Do we know where we're going? A defined North Star&trade;, written objectives, and daily decisions that support them.</p></div>
+        <div class="point"><div class="n">N 02 &middot; Foundation</div><h3>Foundation</h3><p>Can we trust the business beneath us? Books accurate and current, reports reliable, cash position always known.</p></div>
+        <div class="point"><div class="n">N 03 &middot; Visibility</div><h3>Visibility</h3><p>Can we clearly see what's happening? The KPIs that matter, tracked over time &mdash; margins, trends, and cash flow.</p></div>
+        <div class="point"><div class="n">N 04 &middot; Decision</div><h3>Decision</h3><p>Can we make confident decisions? A working budget, forecasts before big moves, and meetings that produce decisions.</p></div>
+        <div class="point"><div class="n">N 05 &middot; Capacity</div><h3>Capacity</h3><p>Can we support the future we're building? People, systems, and reserves that scale with the next stage of growth.</p></div>
+        <div class="point"><div class="n">N 06 &middot; Execution</div><h3>Execution</h3><p>Are we consistently moving toward our North Star&trade;? Quarterly priorities completed, roadblocks removed, a rhythm held.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--surface);border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Reading the score</span><h2>Where you land.</h2></div>
+      <div class="bands">
+        <div class="band-row"><span class="rng">90&ndash;100</span><span class="nm">Elite Leadership</span><span class="ds">Strong systems and consistent execution. Protect it, and scale.</span></div>
+        <div class="band-row"><span class="rng">80&ndash;89</span><span class="nm">Growth Ready</span><span class="ds">A dependable foundation and clear direction.</span></div>
+        <div class="band-row"><span class="rng">70&ndash;79</span><span class="nm">Strong Foundation</span><span class="ds">Fundamentals in place; fix one or two weak points.</span></div>
+        <div class="band-row"><span class="rng">60&ndash;69</span><span class="nm">Developing</span><span class="ds">Visibility and consistency still limit confident decisions.</span></div>
+        <div class="band-row"><span class="rng">&lt; 60</span><span class="nm">Navigation Needed</span><span class="ds">You're deciding with incomplete information.</span></div>
+      </div>
+    </div>
+  </section>
+
   <section>
-    <div class="article-wrap">
-      <div class="article-body">
-<p>Most small business owners see their Profit &amp; Loss statement once a year, right before tax season. They hand it to their CPA, nod along through the conversation, and file it away until next April. That's a missed opportunity, because your P&amp;L is one of the most useful tools in your business, if you know how to read it.</p>
-<h2>What a P&amp;L Is and What It Isn't</h2>
-<p>A Profit &amp; Loss statement (also called an income statement) shows your revenue, your expenses, and your net profit or loss over a specific period of time: a month, a quarter, or a year. It's a snapshot of how your business performed financially during that window.</p>
-<p>What it isn't: a cash flow statement. Your P&amp;L can show a profit even when your bank account is empty. That's because profit is an accounting concept that follows when income is earned and when expenses are incurred, not necessarily when cash actually moves. Understanding this distinction matters a lot if you're trying to make sense of why the numbers don't always feel real.</p>
-<h2>The difference between revenue and profit</h2>
-<p>Revenue is the total money coming into the business before anything is taken out. Profit is what's left after expenses. These are not the same thing, and conflating them is one of the most common mistakes business owners make.</p>
-<p>A business with $400,000 in annual revenue can still lose money. A business with $80,000 in revenue can be healthy and generating real take-home income. Revenue is a vanity number without context. Profit, and specifically profit margin, is the number that actually tells you whether the business model works.</p>
-<div class="callout-box">
-<p><strong>Quick math:</strong> If you bring in $10,000 in revenue and spend $8,500 to deliver your service, your gross profit is $1,500. That's a 15% gross margin. Whether that's healthy depends entirely on your industry and cost structure, and your P&amp;L makes this visible.</p>
-</div>
-<h2>What gross margin tells you about your pricing</h2>
-<p>Gross margin is the percentage of revenue left after subtracting the direct costs of delivering your product or service: things like materials, subcontractors, or direct labor. It lives near the top of your P&amp;L, before operating expenses like rent, software, or your own salary.</p>
-<p>A low gross margin often signals a pricing problem. If you're charging $500 for a service that costs you $450 to deliver, you don't have an expenses problem. You have a pricing problem. Your P&amp;L reveals this directly. Once you can see your gross margin clearly, you can make deliberate decisions about where to adjust rates, reduce costs, or drop unprofitable service lines.</p>
-<h2>How operating expenses affect the bottom line</h2>
-<p>Operating expenses are the costs of running the business that don't tie directly to individual jobs or clients: things like accounting software, marketing, insurance, subscriptions, and administrative payroll. These live below gross profit on your P&amp;L.</p>
-<p>A healthy business keeps operating expenses in check relative to revenue. If your gross profit is solid but your net income is still low, operating expenses are usually the culprit. Your P&amp;L lets you see exactly which categories are eating into profitability and whether any of them have crept up without you noticing.</p>
-<h2>Using your P&amp;L to make actual business decisions</h2>
-<p>Here's where most small business owners leave money on the table: they treat the P&amp;L as a reporting document rather than a decision-making tool. When you review it regularly (monthly, not just at year-end) it becomes something you can actually act on.</p>
-<p>Are revenue numbers trending up while margins are declining? That might mean your costs are rising faster than your prices. Is one expense category unusually high this month? That's worth investigating before it becomes a pattern. Are you consistently profitable in some months but not others? That seasonality is useful information for planning purposes.</p>
-<p>The goal is to stop treating your P&amp;L as paperwork for your CPA and start treating it as one of the primary ways you understand your own business. That shift only happens when your books are clean enough to produce reports you trust, and when you're looking at them consistently enough to notice what's changing.</p>
-<hr class="article-divider" style="margin-top: 2.5rem;"/>
-<p>If your P&amp;L is generating more questions than answers, or if you're not sure your reports are accurate to begin with, that's exactly the kind of thing a professional bookkeeper addresses.</p>
-</div>
+    <div class="wrap thesis-grid">
+      <div>
+        <span class="eyebrow">How it's built</span>
+        <h2>Part measured, part judgment.</h2>
+      </div>
+      <div>
+        <p style="color:var(--muted);margin:0 0 14px;line-height:1.7">Your QuickBooks data tells us what it can measure &mdash; whether the <strong>Foundation</strong> is solid: books current, categorized, reconciled, cash known. That part we compute for you.</p>
+        <p style="color:var(--muted);margin:0;line-height:1.7">The rest &mdash; direction, decisions, execution &mdash; takes a conversation. Your <strong>Executive Guide&trade;</strong> completes the score with you in the Business Navigation Review&trade;, then you track it every quarter.</p>
+      </div>
     </div>
   </section>
 
   <section class="final" id="book" style="position:relative">
     <div class="wrap">
       <span class="eyebrow">Set your bearing</span>
-      <h2>See where your business actually stands.</h2>
-      <p>Book a Business Navigation Review&trade; &mdash; we'll compute your Compass Score&trade;, read your books, and hand you the first Next Turn&trade;.</p>
+      <h2>Find out where you stand.</h2>
+      <p>Book a Business Navigation Review&trade;. We'll compute the Foundation from your books, complete the rest together, and hand you the first Next Turn&trade;.</p>
       <div class="cta-row" style="justify-content:center">
-        <a class="btn btn-primary" href="https://admin.dexton-livvy.com/book/ba9640fa17a84bddecb58d37963572e8">Book your Review &rarr;</a>
+        <a class="btn btn-primary" href="https://admin.dexton-livvy.com/book/ba9640fa17a84bddecb58d37963572e8">Get your Compass Score&trade; &rarr;</a>
         <a class="btn btn-ghost" href="membership.html">See Membership</a>
       </div>
     </div>
   </section>
-<footer class="site-foot">
+
+  <footer class="site-foot">
     <div class="wrap foot-grid">
       <div class="foot-brand">
         <img src="images/footer-logo-white.png" alt="Dexton-Livvy LLC" class="foot-logo">
@@ -394,7 +374,7 @@
       <div class="foot-col">
         <h4>Navigate</h4>
         <a href="platform.html">The Platform</a>
-        <a href="#compass">Compass Score™</a>
+        <a href="compass-score.html">Compass Score™</a>
         <a href="membership.html">Membership</a>
         <a href="method.html">The Method</a>
       </div>
