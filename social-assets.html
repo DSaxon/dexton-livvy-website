@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dexton-Livvy — Social Media Assets</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #e8eaed; font-family: 'DM Sans', sans-serif; padding: 3rem 2rem; }
+
+    .page-header { max-width: 900px; margin: 0 auto 3rem; }
+    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; color: #111; margin-bottom: 0.4rem; }
+    .page-header p { font-size: 0.88rem; color: #555; line-height: 1.6; }
+
+    .asset-block { max-width: 900px; margin: 0 auto 4rem; }
+    .asset-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #777; margin-bottom: 0.6rem;
+    }
+    .asset-label span { color: #e8490d; }
+    .asset-note {
+      font-size: 0.8rem; color: #666; margin-top: 0.75rem; line-height: 1.6;
+      background: #fff; border-left: 3px solid #e8490d; padding: 0.6rem 1rem;
+    }
+
+    /* ─── FACEBOOK COVER 820×312 ─── */
+    .fb-cover {
+      width: 820px;
+      height: 312px;
+      background: #0f172a;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0 56px;
+      gap: 48px;
+    }
+
+    .fb-cover .accent-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: #e8490d;
+    }
+
+    .fb-cover .accent-blob {
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(232,73,13,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .fb-cover .logo-lockup {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .fb-cover .logo-lockup img {
+      height: 52px;
+      width: auto;
+    }
+
+    .fb-cover .divider {
+      width: 1px;
+      height: 80px;
+      background: rgba(255,255,255,0.12);
+      flex-shrink: 0;
+    }
+
+    .fb-cover .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .fb-cover .tagline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: #ffffff;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .fb-cover .services-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .fb-cover .svc-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.07);
+      padding: 0.3rem 0.7rem;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .fb-cover .url {
+      font-size: 0.78rem;
+      color: #e8490d;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── LINKEDIN BANNER 1584×396 shown at 792×198 ─── */
+    .li-banner {
+      width: 792px;
+      height: 198px;
+      background: #0f172a;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0 48px;
+      gap: 36px;
+    }
+
+    .li-banner .accent-bar {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: #e8490d;
+    }
+
+    .li-banner .accent-blob {
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(232,73,13,0.1) 0%, transparent 65%);
+    }
+
+    .li-banner .logo-img {
+      flex-shrink: 0;
+    }
+
+    .li-banner .logo-img img {
+      height: 40px;
+      width: auto;
+    }
+
+    .li-banner .divider {
+      width: 1px; height: 60px;
+      background: rgba(255,255,255,0.12);
+      flex-shrink: 0;
+    }
+
+    .li-banner .right-col { display: flex; flex-direction: column; gap: 6px; }
+
+    .li-banner .tagline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+
+    .li-banner .sub {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .li-banner .url {
+      font-size: 0.68rem;
+      color: #e8490d;
+      font-weight: 600;
+    }
+
+    /* ─── INSTAGRAM PROFILE PIC 500×500 ─── */
+    .ig-grid { display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
+
+    .ig-pfp-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .ig-pfp-wrap .sub-label { font-size: 0.72rem; color: #888; }
+
+    .ig-pfp {
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 4px #e8490d, 0 0 0 7px #e8eaed;
+    }
+
+    .ig-pfp .blob {
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(232,73,13,0.15) 0%, transparent 65%);
+    }
+
+    .ig-pfp .monogram {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      color: #ffffff;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .ig-pfp .pfp-sub {
+      font-size: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #e8490d;
+    }
+
+    /* ─── INSTAGRAM HIGHLIGHT COVERS ─── */
+    .highlights-wrap { display: flex; flex-direction: column; gap: 0.6rem; }
+    .highlights-wrap .sub-label { font-size: 0.72rem; color: #888; margin-bottom: 0.25rem; }
+    .highlights-row { display: flex; gap: 1rem; }
+
+    .hl-circle {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 2px #e8490d;
+      cursor: default;
+    }
+
+    .hl-circle .hl-icon {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .hl-circle .hl-label {
+      font-size: 0.42rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .hl-circle .blob {
+      position: absolute;
+      inset: -10px;
+      background: radial-gradient(circle at 70% 30%, rgba(232,73,13,0.2) 0%, transparent 60%);
+    }
+
+    /* ─── SQUARE POST TEMPLATE 1080×1080 shown at 400×400 ─── */
+    .ig-post {
+      width: 400px; height: 400px;
+      background: #0f172a;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ig-post .blob {
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(232,73,13,0.14) 0%, transparent 65%);
+    }
+
+    .ig-post .top { display: flex; align-items: center; justify-content: space-between; }
+
+    .ig-post .brand img { height: 28px; width: auto; }
+
+    .ig-post .pill {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #e8490d;
+      background: rgba(232,73,13,0.12);
+      padding: 0.3rem 0.7rem;
+      border-radius: 100px;
+    }
+
+    .ig-post .middle {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ig-post .post-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: #ffffff;
+      line-height: 1.25;
+      font-weight: 400;
+    }
+
+    .ig-post .post-sub {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .ig-post .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ig-post .url {
+      font-size: 0.62rem;
+      color: #e8490d;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .ig-post .cta {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .ig-post .accent-line {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: #e8490d;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Dexton-Livvy LLC — Social Media Assets</h1>
+  <p>Screenshot each asset below and upload directly to your social media accounts. All assets use your website's exact colors, fonts, and design language.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     FACEBOOK COVER  820 × 312
+════════════════════════════════════════ -->
+<div class="asset-block">
+  <div class="asset-label">01 — <span>Facebook</span> Cover Photo &nbsp;·&nbsp; 820 × 312 px</div>
+
+  <div class="fb-cover">
+    <div class="accent-blob"></div>
+    <div class="logo-lockup">
+      <img src="images/footer-logo-white.png" alt="Dexton-Livvy LLC">
+    </div>
+    <div class="divider"></div>
+    <div class="right-col">
+      <div class="tagline">Professional Bookkeeping &amp;<br>Payroll Services</div>
+      <div class="services-row">
+        <span class="svc-pill">Bookkeeping</span>
+        <span class="svc-pill">Payroll</span>
+        <span class="svc-pill">QuickBooks Online</span>
+        <span class="svc-pill">DC Metro Area</span>
+      </div>
+      <div class="url">dexton-livvy.com</div>
+    </div>
+    <div class="accent-bar"></div>
+  </div>
+
+  <div class="asset-note">
+    <strong>How to use:</strong> Screenshot this panel at 820px wide. In Facebook, go to your Page → Edit Profile → Cover Photo → Upload Photo.
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     LINKEDIN BANNER  1584 × 396 (shown at 792 × 198)
+════════════════════════════════════════ -->
+<div class="asset-block">
+  <div class="asset-label">02 — <span>LinkedIn</span> Company Banner &nbsp;·&nbsp; 1584 × 396 px &nbsp;(shown at 50%)</div>
+
+  <div class="li-banner">
+    <div class="accent-bar"></div>
+    <div class="accent-blob"></div>
+    <div class="logo-img">
+      <img src="images/footer-logo-white.png" alt="Dexton-Livvy LLC">
+    </div>
+    <div class="divider"></div>
+    <div class="right-col">
+      <div class="tagline">Bookkeeping &amp; Payroll for Small to Mid-Size Businesses</div>
+      <div class="sub">QuickBooks Online &nbsp;·&nbsp; Washington DC Metro Area &nbsp;·&nbsp; Flat-Rate Monthly Packages</div>
+      <div class="url">dexton-livvy.com</div>
+    </div>
+  </div>
+
+  <div class="asset-note">
+    <strong>How to use:</strong> Screenshot this panel, then scale it up to 1584 × 396 px in any image editor (or upload as-is — LinkedIn will scale it). Go to your LinkedIn Company Page → Edit page → Background image.
+    <br><br>
+    <strong>Note:</strong> Your LinkedIn URL appeared to end in <code>/jobs/</code> — make sure you're editing your <strong>Company Page</strong>, not the Jobs section. Your company page URL should look like <code>linkedin.com/company/dexton-livvy</code>.
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     INSTAGRAM PROFILE PICTURE + HIGHLIGHTS
+════════════════════════════════════════ -->
+<div class="asset-block">
+  <div class="asset-label">03 — <span>Instagram</span> Profile Picture &amp; Highlight Covers</div>
+
+  <div class="ig-grid">
+
+    <!-- Profile Pic -->
+    <div class="ig-pfp-wrap">
+      <div class="ig-pfp">
+        <div class="blob"></div>
+        <div class="monogram">DL</div>
+        <div class="pfp-sub">LLC</div>
+      </div>
+      <div class="sub-label">Profile Picture</div>
+    </div>
+
+    <!-- Highlight Covers -->
+    <div class="highlights-wrap">
+      <div class="sub-label">Story Highlight Covers (screenshot each circle individually)</div>
+      <div class="highlights-row">
+        <div class="hl-circle">
+          <div class="blob"></div>
+          <div class="hl-icon">📋</div>
+          <div class="hl-label">Services</div>
+        </div>
+        <div class="hl-circle">
+          <div class="blob"></div>
+          <div class="hl-icon">💼</div>
+          <div class="hl-label">Packages</div>
+        </div>
+        <div class="hl-circle">
+          <div class="blob"></div>
+          <div class="hl-icon">✍️</div>
+          <div class="hl-label">Blog</div>
+        </div>
+        <div class="hl-circle">
+          <div class="blob"></div>
+          <div class="hl-icon">💬</div>
+          <div class="hl-label">FAQ</div>
+        </div>
+        <div class="hl-circle">
+          <div class="blob"></div>
+          <div class="hl-icon">📩</div>
+          <div class="hl-label">Contact</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Square Post Template -->
+    <div style="display:flex;flex-direction:column;gap:0.5rem;">
+      <div class="ig-post">
+        <div class="blob"></div>
+        <div class="top">
+          <div class="brand"><img src="images/footer-logo-white.png" alt="Dexton-Livvy LLC"></div>
+          <div class="pill">Blog Post</div>
+        </div>
+        <div class="middle">
+          <div class="post-title">5 Signs Your Books<br>Need a Cleanup</div>
+          <div class="post-sub">If you're avoiding your accounting software or dreading tax season — your books are telling you something.</div>
+        </div>
+        <div class="bottom">
+          <div class="url">dexton-livvy.com/blog</div>
+          <div class="cta">Link in bio →</div>
+        </div>
+        <div class="accent-line"></div>
+      </div>
+      <div class="sub-label" style="font-size:0.72rem;color:#888;">Blog post template (1080 × 1080 px) — duplicate &amp; swap title/text for each post</div>
+    </div>
+
+  </div>
+
+  <div class="asset-note">
+    <strong>Profile Picture:</strong> Screenshot the circle above and crop tightly. Upload at Instagram → Edit Profile → Profile Photo. Instagram displays it as a circle so the circular crop here is intentional.<br><br>
+    <strong>Highlight Covers:</strong> Screenshot each circle individually. Go to each Story Highlight → Edit Highlight → Edit Cover → upload the matching image.<br><br>
+    <strong>Blog Post Template:</strong> Screenshot the dark square card. Use it as a branded image when sharing blog posts — swap the title text in a design tool like Canva if needed, or just use the screenshot as a static template.
+  </div>
+</div>
+
+
+</body>
+</html>
