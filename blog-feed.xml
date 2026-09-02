@@ -7,8 +7,18 @@
     <language>en-us</language>
     <managingEditor>dsaxon@dexton-livvy.com (Dexton-Livvy LLC)</managingEditor>
     <webMaster>dsaxon@dexton-livvy.com (Dexton-Livvy LLC)</webMaster>
-    <lastBuildDate>Sat, 27 Jun 2026 18:02:30 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 15:36:51 +0000</lastBuildDate>
     <atom:link href="https://dexton-livvy.com/blog-feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Seam Test — Delete Me</title>
+      <link>https://dexton-livvy.com/blog-seam-test-delete-me.html</link>
+      <description>A verification of the website seam. This branch will be closed.</description>
+      <pubDate>Wed, 02 Sep 2026 15:36:51 +0000</pubDate>
+      <guid isPermaLink="true">https://dexton-livvy.com/blog-seam-test-delete-me.html</guid>
+      <category>Bookkeeping</category>
+      <enclosure url="https://dexton-livvy.com/social-assets/post-graphics/ig-post-seam-test-delete-me.png" length="0" type="image/png" />
+    </item>
 
     <item>
       <title>QuickBooks File Cleanup: A Strategic Guide to Restoring Data Integrity</title>
