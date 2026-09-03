@@ -76,7 +76,20 @@
   .quote span{color:var(--accent);font-style:italic}
   .foot{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.82rem;text-align:center}
   .foot a{color:var(--muted)}
-</style>
+
+    /* The ask, after the watch. Hidden until the video ends, because a button
+       that says "book a call" before anyone has watched the thing is asking for
+       a decision the viewer has no basis to make. The closing card in the video
+       points down at this; the video itself cannot hold a link. */
+    .after{margin:22px 0 0;text-align:center;opacity:0;transform:translateY(8px);
+           transition:opacity .5s ease,transform .5s ease}
+    .after[hidden]{display:none}
+    .after.show{opacity:1;transform:none}
+    .after .line{font-family:var(--fd);font-size:1.42rem;color:var(--heading);margin:0 0 14px;line-height:1.25}
+    .after .fine{margin:12px 0 0;color:var(--muted);font-size:.86rem}
+    .after .fine a{color:var(--accent)}
+    @media (prefers-reduced-motion:reduce){.after{transition:none}}
+  </style>
 </head>
 <body>
 <header class="mast">
@@ -103,6 +116,11 @@
           </video>
         </div>
         <div class="under"><span><b>~9</b> min</span><span>For owners doing <b>$250k–$5M</b></span><span>Zero jargon</span><span>Real numbers, real stories</span></div>
+        <div class="after" id="after-watch" hidden>
+          <p class="line">That's the leak. Now find yours.</p>
+          <a class="btn btn-primary" href="https://admin.dexton-livvy.com/book/ba9640fa17a84bddecb58d37963572e8">Book your Business Navigation Review&trade; &rarr;</a>
+          <p class="fine">$495, credited to your first month if you move forward.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -142,5 +160,28 @@
 <footer class="foot">
   <div class="wrap">Dexton-Livvy LLC · Financial Intelligence for Small Business · Build. Grow. Succeed. · <a href="https://dexton-livvy.com">dexton-livvy.com</a></div>
 </footer>
+
+<script>
+  // Reveal the ask only once the masterclass has actually been watched.
+  // 'ended' does not fire if the viewer scrubs to the end and stops, so a
+  // timeupdate check covers that too: past 97% counts as watched. Once shown it
+  // stays shown — replaying should not take the offer away again.
+  (function () {
+    var v = document.querySelector('video.vsl');
+    var box = document.getElementById('after-watch');
+    if (!v || !box) return;
+    var shown = false;
+    function reveal() {
+      if (shown) return;
+      shown = true;
+      box.hidden = false;
+      requestAnimationFrame(function () { box.classList.add('show'); });
+    }
+    v.addEventListener('ended', reveal);
+    v.addEventListener('timeupdate', function () {
+      if (v.duration && v.currentTime / v.duration > 0.97) reveal();
+    });
+  })();
+</script>
 </body>
 </html>
