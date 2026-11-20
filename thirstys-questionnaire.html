@@ -2,263 +2,438 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Discovery Questionnaire: Thirsty's Wine &amp; Spirits | Dexton-Livvy LLC</title>
 <link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #f3efe6; --card: #fffdf8; --ink: #2b3440; --heading: #14283f; --muted: #5e6a78;
-    --line: #e0d9ca; --accent: #e8490d; --accent-ink: #ffffff; --focus: #14283f;
-    --ok: #1a7f37; --err: #b42318; --tint: #fdeee6;
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink);
-    font: 16px/1.55 'DM Sans', system-ui, -apple-system, sans-serif; }
-  .topbar { background: var(--card); border-bottom: 1px solid var(--line); }
-  .topbar .in { max-width: 760px; margin: 0 auto; padding: 12px 16px; }
-  .topbar img { height: 48px; width: auto; display: block; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
-  header h1 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; color: var(--heading); font-size: 2rem; line-height: 1.15; margin: 0 0 8px; }
-  legend, .thanks h2 { color: var(--heading); }
-  header .sub { color: var(--muted); margin: 0 0 20px; }
-  .note { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent);
-    border-radius: 8px; padding: 14px 16px; margin-bottom: 24px; font-size: .95rem; }
-  .progress { position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 10px 0; margin-bottom: 8px; }
-  .bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
-  .bar span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s; }
-  .progress small { color: var(--muted); display: block; margin-top: 4px; }
-  fieldset { border: 1px solid var(--line); background: var(--card); border-radius: 10px;
-    padding: 8px 20px 20px; margin: 0 0 20px; min-width: 0; }
-  legend { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.3rem; font-weight: 400; padding: 0 8px; margin-left: -8px;
-    display: flex; align-items: center; gap: 10px; }
-  legend .num { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
-    background: var(--accent); color: var(--accent-ink); font: 600 .85rem/1 system-ui, sans-serif; }
-  .intro { color: var(--muted); margin: 8px 0 4px; }
-  .q { margin-top: 18px; }
-  .q label, .qlabel { display: block; font-weight: 600; margin: 0 0 6px; }
-  input[type=text], input[type=email], input[type=tel], textarea {
-    width: 100%; font: inherit; color: inherit; background: #fff; border: 1px solid var(--line);
-    border-radius: 6px; padding: 10px 12px; }
-  textarea { resize: vertical; min-height: 84px; }
-  input:focus, textarea:focus, .opt input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 1px; }
-  .opts { display: flex; flex-wrap: wrap; gap: 8px; }
-  .opt { display: inline-flex; align-items: center; gap: 8px; font-weight: 400 !important; margin: 0 !important;
-    border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; background: #fff; }
-  .opt:has(input:checked) { border-color: var(--accent); background: var(--tint); }
-  fieldset#s7 .opts { flex-direction: column; }
-  fieldset#s7 .opt { border-radius: 6px; }
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
-  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } header h1 { font-size: 1.55rem; } fieldset { padding: 8px 14px 16px; } }
-  .req { color: var(--err); }
-  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 8px; }
-  button { font: 600 1rem/1 'DM Sans', system-ui, sans-serif; background: var(--accent); color: var(--accent-ink);
-    border: 0; border-radius: 8px; padding: 14px 26px; cursor: pointer; }
-  button[disabled] { opacity: .6; cursor: progress; }
-  .saved { color: var(--muted); font-size: .9rem; }
-  #status { margin-top: 16px; padding: 14px 16px; border-radius: 8px; display: none; }
-  #status.ok { display: block; background: #e8f3ec; color: var(--ok); border: 1px solid #b9dbc5; }
-  #status.err { display: block; background: #fbeaea; color: var(--err); border: 1px solid #ecc0c0; }
-  .thanks { text-align: center; padding: 48px 16px; }
-  .thanks h2 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; }
+:root{
+  --paper:#f3efe6; --card:#fffdf8; --text:#2b3440; --heading:#14283f; --muted:#5e6a78;
+  --line:#e0d9ca; --line-strong:#ccc3af; --accent:#e8490d; --accent-2:#c93d08; --tint:#fdf0e8;
+  --navy:#14283f; --navy-2:#1d3757; --good:#1a7f37; --err:#b42318;
+  --r:14px; --shadow:0 1px 2px rgba(20,40,63,.06),0 18px 40px -24px rgba(20,40,63,.28);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);font:16px/1.55 'DM Sans',system-ui,-apple-system,sans-serif;min-height:100vh}
+button{font:inherit;color:inherit}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:20;background:rgba(255,253,248,.92);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.top .in{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px}
+.top img{height:40px;width:auto;display:block}
+.top .for{margin-left:auto;font-size:.85rem;color:var(--muted);text-align:right;line-height:1.3}
+.top .for b{display:block;color:var(--heading);font-weight:600}
+.bar{height:4px;background:var(--line);}
+.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),#f2843f);transition:width .35s ease}
+
+/* ---------- layout ---------- */
+.shell{max-width:1080px;margin:0 auto;padding:32px 16px 140px;display:grid;grid-template-columns:230px 1fr;gap:40px;align-items:start}
+.rail{position:sticky;top:90px}
+.rail h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:var(--heading);font-size:1.45rem;line-height:1.15;margin:0 0 4px}
+.rail .sub{color:var(--muted);font-size:.88rem;margin:0 0 20px}
+.steps{list-style:none;margin:0;padding:0;position:relative}
+.steps::before{content:"";position:absolute;left:15px;top:16px;bottom:16px;width:2px;background:var(--line)}
+.sn{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:12px;width:100%;padding:7px 8px 7px 0;cursor:pointer;border-radius:10px;position:relative}
+.sn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.sn .dot{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:700;background:var(--card);border:2px solid var(--line-strong);color:var(--muted);flex-shrink:0;transition:.2s}
+.sn .nm{font-weight:500;color:var(--muted)}
+.sn.done .dot{background:var(--navy);border-color:var(--navy);color:#fff}
+.sn.done .dot{font-size:0}
+.sn.done .dot::after{content:"";width:10px;height:6px;border:solid #fff;border-width:0 0 2.4px 2.4px;transform:translateY(-2px) rotate(-45deg)}
+.sn[aria-current="step"] .dot{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 0 5px var(--tint);font-size:.8rem}
+.sn[aria-current="step"] .dot::after{display:none}
+.sn[aria-current="step"] .nm{color:var(--heading);font-weight:700}
+.sn:hover .nm{color:var(--heading)}
+.saved{margin-top:18px;font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:6px;min-height:1.2em}
+.saved::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);opacity:0;transition:.3s}
+.saved.on::before{opacity:1}
+
+/* ---------- step card ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:40px 44px}
+.step{animation:in .35s ease both}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.eyebrow{margin:0 0 6px;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.step h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:var(--heading);font-size:clamp(1.8rem,3.4vw,2.4rem);line-height:1.1;margin:0 0 10px;outline:none}
+.lede{color:var(--muted);margin:0 0 8px;max-width:58ch;font-size:1.02rem}
+.meta{list-style:none;padding:0;margin:14px 0 6px;display:flex;flex-wrap:wrap;gap:8px}
+.meta li{font-size:.82rem;font-weight:600;color:var(--navy);background:#eef2f6;border-radius:999px;padding:5px 12px}
+
+.q{margin-top:28px}
+.ql{display:block;font-weight:600;color:var(--heading);margin:0 0 10px;font-size:1.02rem;line-height:1.4}
+.req{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-left:6px;vertical-align:2px}
+.hint{font-size:.85rem;color:var(--muted);margin:-4px 0 10px}
+.q > .hint:last-child{margin:8px 0 0}
+input[type=text],input[type=email],input[type=tel],textarea{
+  width:100%;font:inherit;color:var(--heading);background:#fff;border:1.5px solid var(--line-strong);border-radius:12px;
+  padding:14px 16px;min-height:52px;transition:border-color .15s, box-shadow .15s}
+textarea{resize:none;overflow:hidden;min-height:88px;line-height:1.5}
+input::placeholder,textarea::placeholder{color:#a19a8c}
+input:hover,textarea:hover{border-color:#b3a98f}
+input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--tint)}
+input.bad{border-color:var(--err);box-shadow:0 0 0 4px #fbe4e1}
+input.ok{border-color:var(--good)}
+.err{color:var(--err);font-size:.86rem;margin:6px 0 0;min-height:0}
+.err:empty{display:none}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.grid .q{margin-top:24px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mini span{display:block;font-size:.85rem;color:var(--muted);margin-bottom:6px;font-weight:500}
+
+/* choice tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.tile{position:relative;display:flex;align-items:center;gap:12px;min-height:54px;padding:12px 14px;border:1.5px solid var(--line-strong);border-radius:12px;background:#fff;cursor:pointer;transition:border-color .15s,background .15s,transform .08s;user-select:none}
+.tile:hover{border-color:var(--navy-2)}
+.tile:active{transform:scale(.985)}
+.tile input{position:absolute;opacity:0;pointer-events:none}
+.tile .k{width:22px;height:22px;border-radius:6px;border:2px solid var(--line-strong);display:grid;place-items:center;flex-shrink:0;background:#fff;transition:.15s}
+.tile .k::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff;transform:scale(0);transition:.15s}
+.multi .tile .k::after{width:10px;height:6px;border-radius:0;background:none;border:solid #fff;border-width:0 0 2.4px 2.4px;transform:translateY(-1px) rotate(-45deg) scale(0)}
+.multi .tile:has(input:checked) .k::after{transform:translateY(-1px) rotate(-45deg) scale(1)}
+.tiles:not(.multi) .tile:has(input:checked) .k::after{transform:scale(1)}
+.tiles:not(.multi) .tile .k{border-radius:50%}
+.tile .t{font-weight:500;color:var(--heading);line-height:1.3}
+
+.tile:has(input:checked){border-color:var(--accent);background:var(--tint)}
+.tile:has(input:checked) .k{background:var(--accent);border-color:var(--accent);color:#fff}
+.tile:has(input:focus-visible){outline:3px solid var(--accent);outline-offset:2px}
+
+/* optional disclosure */
+.more{margin-top:32px;border:1.5px dashed var(--line-strong);border-radius:14px;background:#fffaf2}
+.more summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:10px;font-weight:600;color:var(--heading)}
+.more summary::-webkit-details-marker{display:none}
+.more summary::before{content:"+";width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;line-height:1;flex-shrink:0}
+.more[open] summary::before{content:"–"}
+.more summary em{font-style:normal;font-weight:500;color:var(--muted);font-size:.88rem}
+.more-in{padding:0 18px 22px}
+.more-in .q:first-child{margin-top:4px}
+
+/* review */
+.review{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.review button{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:14px;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;background:#fff;cursor:pointer}
+.review button:hover{border-color:var(--navy-2)}
+.review button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.review .rn{font-weight:600;color:var(--heading)}
+.review .rc{margin-left:auto;font-size:.85rem;color:var(--muted)}
+.review .meter{width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden;flex-shrink:0}
+.review .meter span{display:block;height:100%;background:var(--good)}
+.review .edit{font-size:.82rem;font-weight:600;color:var(--accent)}
+.sendbox{margin-top:22px;padding:16px 18px;border-radius:12px;background:#eef2f6;color:var(--navy);font-size:.92rem}
+.sendbox p{margin:0}
+
+/* bottom action bar */
+.actions{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,253,248,.95);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+.actions .in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.actions .spacer{flex:1}
+.kbd{font-size:.8rem;color:var(--muted)}
+.kbd kbd{font:600 .75rem 'DM Sans',sans-serif;border:1px solid var(--line-strong);border-bottom-width:2px;border-radius:5px;padding:1px 6px;background:#fff}
+.btn{white-space:nowrap;border:0;border-radius:12px;padding:15px 24px;font-weight:700;font-size:1rem;cursor:pointer;display:inline-flex;align-items:center;gap:10px;min-height:52px;transition:background .15s, transform .08s}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px -12px rgba(232,73,13,.7)}
+.btn-primary:hover{background:var(--accent-2)}
+.btn-ghost{background:transparent;color:var(--heading);border:1.5px solid var(--line-strong)}
+.btn-ghost:hover{border-color:var(--navy)}
+.btn[disabled]{opacity:.6;cursor:progress}
+.btn .arr{transition:transform .15s}
+.btn-primary:hover .arr{transform:translateX(3px)}
+
+/* thanks */
+.thanks{text-align:center;padding:24px 8px}
+.thanks .badge{width:72px;height:72px;border-radius:50%;background:var(--tint);display:grid;place-items:center;margin:0 auto 18px}
+.thanks h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:var(--heading);font-size:2.2rem;margin:0 0 10px}
+.thanks p{color:var(--muted);max-width:46ch;margin:0 auto 22px}
+
+/* mobile */
+.mstep{display:none}
+@media (max-width:860px){
+  .shell{grid-template-columns:1fr;gap:0;padding-top:16px}
+  .rail{display:none}
+  .mstep{display:flex;align-items:center;gap:10px;max-width:1080px;margin:0 auto;padding:10px 16px 0;font-size:.85rem;color:var(--muted)}
+  .mstep b{color:var(--heading)}
+  .segs{display:flex;gap:4px;flex:1}
+  .segs i{flex:1;height:5px;border-radius:3px;background:var(--line)}
+  .segs i.on{background:var(--navy)}
+  .segs i.cur{background:var(--accent)}
+  .top .for{display:none}
+  .bar{display:none}
+  .card{padding:28px 20px;border-radius:16px}
+  .grid,.duo{grid-template-columns:1fr}
+  .tiles{grid-template-columns:1fr}
+  .kbd{display:none}
+  .actions .btn-primary{flex:1;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="topbar"><div class="in"><a href="index.html" aria-label="Dexton-Livvy LLC home"><img src="images/logo3.svg" alt="Dexton-Livvy LLC"></a></div></div>
-<div class="wrap">
-  <header>
-    <h1>Thirsty's Wine &amp; Spirits: Discovery Questionnaire</h1>
-    <p class="sub">Prepared by Demond, Dexton-Livvy LLC</p>
-  </header>
-
-  <div class="note">
-    These questions help me shape your marketing plan before we talk. Answer what you can and skip anything you're unsure of; we'll cover the rest on our call.
-    It takes about 15 to 20 minutes. Your answers are saved in this browser as you type, so you can come back and finish later.
+<header class="top">
+  <div class="in">
+    <a href="index.html" aria-label="Dexton-Livvy LLC home"><img src="images/logo3.svg" alt="Dexton-Livvy LLC"></a>
+    <div class="for"><b>Discovery questionnaire</b>Thirsty's Wine &amp; Spirits</div>
   </div>
+  <div class="bar"><span id="barfill"></span></div>
+  <div class="mstep"><span><b id="mname">You</b> · <span id="mcount">1 of 9</span></span><div class="segs" id="segs"></div></div>
+</header>
 
-  <div class="progress" aria-hidden="true"><div class="bar"><span id="barfill"></span></div><small id="bartext">0 questions answered</small></div>
+<form id="dq" action="https://formspree.io/f/xjyweyyl" method="POST" novalidate>
+  <input type="hidden" name="_subject" value="Discovery questionnaire: Thirsty's Wine &amp; Spirits">
+  <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <div class="shell">
+    <aside class="rail">
+      <h1>Thirsty's Wine &amp; Spirits</h1>
+      <p class="sub">Discovery questionnaire, prepared by Demond at Dexton-Livvy</p>
+      <ol class="steps" id="nav">
+<li><button type="button" class="sn" data-go="0"><span class="dot">1</span><span class="nm">You</span></button></li>
+<li><button type="button" class="sn" data-go="1"><span class="dot">2</span><span class="nm">Goals</span></button></li>
+<li><button type="button" class="sn" data-go="2"><span class="dot">3</span><span class="nm">Store</span></button></li>
+<li><button type="button" class="sn" data-go="3"><span class="dot">4</span><span class="nm">Marketing</span></button></li>
+<li><button type="button" class="sn" data-go="4"><span class="dot">5</span><span class="nm">Brand</span></button></li>
+<li><button type="button" class="sn" data-go="5"><span class="dot">6</span><span class="nm">Compliance</span></button></li>
+<li><button type="button" class="sn" data-go="6"><span class="dot">7</span><span class="nm">Budget</span></button></li>
+<li><button type="button" class="sn" data-go="7"><span class="dot">8</span><span class="nm">Access</span></button></li>
+<li><button type="button" class="sn" data-go="8"><span class="dot">9</span><span class="nm">Review</span></button></li>
+      </ol>
+      <div class="saved" id="saved"></div>
+    </aside>
+    <main class="card" id="card">
 
-  <form id="dq" action="https://formspree.io/f/mnjoknew" method="POST" novalidate>
-    <input type="hidden" name="_subject" value="Discovery questionnaire: Thirsty's Wine &amp; Spirits">
-    <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<section class="step" data-step="0" aria-labelledby="h0">
+  <p class="eyebrow">Step 1 of 9</p>
+  <h2 id="h0" tabindex="-1">Let's start with you</h2>
+  <p class="lede">Your answers help Demond build a marketing plan that fits Thirsty's. Skip anything you're unsure of; he'll follow up by email on anything that needs more detail.</p>
+  <ul class="meta"><li>About 15 minutes</li><li>Saves as you go</li><li>Only Demond sees your answers</li></ul>
+  <div class="grid">
+    <div class="q"><label class="ql" for="c_name">Your name <span class="req">required</span></label><input type="text" id="c_name" name="name" autocomplete="name" required><p class="err" id="c_name_e"></p></div>
+    <div class="q"><label class="ql" for="c_email">Email <span class="req">required</span></label><input type="email" id="c_email" name="email" autocomplete="email" inputmode="email" required><p class="err" id="c_email_e"></p></div>
+    <div class="q"><label class="ql" for="c_role">Your role</label><input type="text" id="c_role" name="0. You | Role" autocomplete="organization-title" placeholder="e.g. Owner"></div>
+    <div class="q"><label class="ql" for="c_phone">Phone</label><input type="tel" id="c_phone" name="0. You | Phone" autocomplete="tel"></div>
+  </div>
+  <div class="q"><label class="ql" for="c_others">Is anyone else involved in the decision?</label><input type="text" id="c_others" name="0. You | Other decision makers" placeholder="Name and role, e.g. business partner"></div>
+</section>
 
-    <fieldset class="section" id="s0">
-      <legend>Your details</legend>
-      <div class="grid">
-        <div class="q"><label for="c_name">Your name <span class="req">*</span></label><input type="text" id="c_name" name="name" autocomplete="name" required></div>
-        <div class="q"><label for="c_role">Your role</label><input type="text" id="c_role" name="0. Your details | Role" autocomplete="organization-title"></div>
-        <div class="q"><label for="c_email">Email <span class="req">*</span></label><input type="email" id="c_email" name="email" autocomplete="email" required></div>
-        <div class="q"><label for="c_phone">Phone</label><input type="tel" id="c_phone" name="0. Your details | Phone" autocomplete="tel"></div>
-      </div>
-      <div class="q"><label for="c_others">Anyone else who should join our call (name, role)?</label><input type="text" id="c_others" name="0. Your details | Others to include on the call"></div>
-    </fieldset>
+<section class="step" data-step="1" aria-labelledby="h1" hidden>
+  <p class="eyebrow">Step 2 of 9</p>
+  <h2 id="h1" tabindex="-1">Your goals</h2>
+  <p class="lede">Start with the big picture. Rough numbers are fine.</p>
+  <div class="q"><label class="ql" for="q1">What would make the next 12 months a success? Name one or two numbers.</label><textarea id="q1" name="1. Your goals | What would make the next 12 months a success? Name one or two numbers." rows="2" placeholder="e.g. 15% more holiday sales, 2,000 people on the email list"></textarea></div><div class="q" role="group" aria-labelledby="q2_l"><p class="ql" id="q2_l">Who are your best customers?</p><p class="hint">Choose all that apply.</p><div class="tiles multi"><label class="tile"><input type="checkbox" name="1. Your goals | Who are your best customers?" value="Locals"><span class="k" aria-hidden="true"></span><span class="t">Locals</span></label><label class="tile"><input type="checkbox" name="1. Your goals | Who are your best customers?" value="Commuters"><span class="k" aria-hidden="true"></span><span class="t">Commuters</span></label><label class="tile"><input type="checkbox" name="1. Your goals | Who are your best customers?" value="National Harbor / MGM visitors"><span class="k" aria-hidden="true"></span><span class="t">National Harbor / MGM visitors</span></label><label class="tile"><input type="checkbox" name="1. Your goals | Who are your best customers?" value="Businesses and events"><span class="k" aria-hidden="true"></span><span class="t">Businesses and events</span></label><label class="tile"><input type="checkbox" name="1. Your goals | Who are your best customers?" value="Other"><span class="k" aria-hidden="true"></span><span class="t">Other</span></label></div></div><div class="q" role="group" aria-labelledby="q3_l"><p class="ql" id="q3_l">What makes Thirsty&#x27;s different?</p><p class="hint">Choose all that apply.</p><div class="tiles multi"><label class="tile"><input type="checkbox" name="1. Your goals | What makes Thirsty&#x27;s different?" value="Selection"><span class="k" aria-hidden="true"></span><span class="t">Selection</span></label><label class="tile"><input type="checkbox" name="1. Your goals | What makes Thirsty&#x27;s different?" value="Price"><span class="k" aria-hidden="true"></span><span class="t">Price</span></label><label class="tile"><input type="checkbox" name="1. Your goals | What makes Thirsty&#x27;s different?" value="Staff knowledge"><span class="k" aria-hidden="true"></span><span class="t">Staff knowledge</span></label><label class="tile"><input type="checkbox" name="1. Your goals | What makes Thirsty&#x27;s different?" value="Location"><span class="k" aria-hidden="true"></span><span class="t">Location</span></label><label class="tile"><input type="checkbox" name="1. Your goals | What makes Thirsty&#x27;s different?" value="Events and tastings"><span class="k" aria-hidden="true"></span><span class="t">Events and tastings</span></label><label class="tile"><input type="checkbox" name="1. Your goals | What makes Thirsty&#x27;s different?" value="Other"><span class="k" aria-hidden="true"></span><span class="t">Other</span></label></div></div><div class="q"><label class="ql" for="q4">What do you want to sell more of this holiday season?</label><textarea id="q4" name="1. Your goals | What do you want to sell more of this holiday season?" rows="2" placeholder="Gift sets, a certain bourbon, wine by the case…"></textarea></div><details class="more"><summary><span>5 more questions</span><em>optional, helps a lot</em></summary><div class="more-in"><div class="q"><label class="ql" for="q5">Is Thirsty&#x27;s one store, or part of a group? (The app is listed under &quot;Better Liquors Inc.&quot;)</label><input type="text" id="q5" name="1. Your goals | Is Thirsty&#x27;s one store, or part of a group? (The app is listed under &quot;Better Liquors Inc.&quot;)"></div><div class="q"><label class="ql" for="q6">Roughly how do sales split between wine, spirits, beer and other? Which has the best margin?</label><textarea id="q6" name="1. Your goals | Roughly how do sales split between wine, spirits, beer and other? Which has the best margin?" rows="2"></textarea></div><div class="q"><label class="ql" for="q7">What are your busiest and slowest days, hours and months?</label><textarea id="q7" name="1. Your goals | What are your busiest and slowest days, hours and months?" rows="2"></textarea></div><div class="q" role="group" aria-labelledby="q8_l"><p class="ql" id="q8_l">What share of sales comes from online or app orders today?</p><div class="tiles"><label class="tile"><input type="radio" name="1. Your goals | What share of sales comes from online or app orders today?" value="Under 5%"><span class="k" aria-hidden="true"></span><span class="t">Under 5%</span></label><label class="tile"><input type="radio" name="1. Your goals | What share of sales comes from online or app orders today?" value="5–15%"><span class="k" aria-hidden="true"></span><span class="t">5–15%</span></label><label class="tile"><input type="radio" name="1. Your goals | What share of sales comes from online or app orders today?" value="15–30%"><span class="k" aria-hidden="true"></span><span class="t">15–30%</span></label><label class="tile"><input type="radio" name="1. Your goals | What share of sales comes from online or app orders today?" value="Over 30%"><span class="k" aria-hidden="true"></span><span class="t">Over 30%</span></label><label class="tile"><input type="radio" name="1. Your goals | What share of sales comes from online or app orders today?" value="Not sure"><span class="k" aria-hidden="true"></span><span class="t">Not sure</span></label></div></div><div class="q"><label class="ql" for="q9">Who are your main competitors, and why do customers pick them?</label><textarea id="q9" name="1. Your goals | Who are your main competitors, and why do customers pick them?" rows="2"></textarea></div></div></details>
+</section>
 
-<fieldset class="section" id="s1">
-<legend><span class="num">1</span>Business and goals</legend>
-<div class="q"><label for="q1">What would make the next 12 months a success? Name one or two numbers.</label><textarea id="q1" name="1. Business and goals | What would make the next 12 months a success? Name one or two numbers." rows="3"></textarea></div>
-<div class="q"><label for="q2">Is Thirsty&#x27;s one store, or part of a group? (The app is listed under &quot;Better Liquors Inc.&quot;)</label><textarea id="q2" name="1. Business and goals | Is Thirsty&#x27;s one store, or part of a group? (The app is listed under &quot;Better Liquors Inc.&quot;)" rows="3"></textarea></div>
-<div class="q"><label for="q3">Roughly how do sales split between wine, spirits, beer and other? Which category has the best margin?</label><textarea id="q3" name="1. Business and goals | Roughly how do sales split between wine, spirits, beer and other? Which category has the best margin?" rows="3"></textarea></div>
-<div class="q"><label for="q4">What are your busiest and slowest days, hours and months?</label><textarea id="q4" name="1. Business and goals | What are your busiest and slowest days, hours and months?" rows="3"></textarea></div>
-<div class="q"><label for="q5">Who are your best customers: locals, commuters, National Harbor and MGM visitors, businesses?</label><textarea id="q5" name="1. Business and goals | Who are your best customers: locals, commuters, National Harbor and MGM visitors, businesses?" rows="3"></textarea></div>
-<div class="q"><label for="q6">What share of sales comes from online or app orders today?</label><input type="text" id="q6" name="1. Business and goals | What share of sales comes from online or app orders today?"></div>
-<div class="q"><label for="q7">Who are your main competitors, and why do customers pick them?</label><textarea id="q7" name="1. Business and goals | Who are your main competitors, and why do customers pick them?" rows="3"></textarea></div>
-<div class="q"><label for="q8">What makes Thirsty&#x27;s different: selection, price, staff, location?</label><textarea id="q8" name="1. Business and goals | What makes Thirsty&#x27;s different: selection, price, staff, location?" rows="3"></textarea></div>
-<div class="q"><label for="q9">What do you want to sell more of this holiday season?</label><textarea id="q9" name="1. Business and goals | What do you want to sell more of this holiday season?" rows="3"></textarea></div>
-</fieldset>
-<fieldset class="section" id="s2">
-<legend><span class="num">2</span>Store operations</legend>
-<div class="q"><label for="q10">What are your correct Wednesday hours? (The website shows 8:00 AM to 11:00 AM.)</label><input type="text" id="q10" name="2. Store operations | What are your correct Wednesday hours? (The website shows 8:00 AM to 11:00 AM.)"></div>
-<div class="q"><label for="q11">How many staff do you have, and who could greet customers, run tastings or take photos?</label><textarea id="q11" name="2. Store operations | How many staff do you have, and who could greet customers, run tastings or take photos?" rows="3"></textarea></div>
-<div class="q"><label for="q12">Your events page lists upcoming events. Who plans them, how often do they run, how well attended are they, and do distributors supply product or pourers?</label><textarea id="q12" name="2. Store operations | Your events page lists upcoming events. Who plans them, how often do they run, how well attended are they, and do distributors supply product or pourers?" rows="3"></textarea></div>
-<div class="q"><label for="q13">Do you offer delivery, curbside or in-store pickup? What area and minimum order?</label><textarea id="q13" name="2. Store operations | Do you offer delivery, curbside or in-store pickup? What area and minimum order?" rows="3"></textarea></div>
-<div class="q"><label for="q14">Which distributors and brand reps do you work with most?</label><textarea id="q14" name="2. Store operations | Which distributors and brand reps do you work with most?" rows="3"></textarea></div>
-<div class="q"><label for="q15">Do you get allocated or limited bottles (bourbon, wine) that customers would want to hear about?</label><textarea id="q15" name="2. Store operations | Do you get allocated or limited bottles (bourbon, wine) that customers would want to hear about?" rows="3"></textarea></div>
-<div class="q"><label for="q16">What POS system do you use, and does it connect to City Hive?</label><input type="text" id="q16" name="2. Store operations | What POS system do you use, and does it connect to City Hive?"></div>
-<div class="q"><label for="q17">Any store events coming up: anniversaries, renovations, new departments?</label><textarea id="q17" name="2. Store operations | Any store events coming up: anniversaries, renovations, new departments?" rows="3"></textarea></div>
-</fieldset>
-<fieldset class="section" id="s3">
-<legend><span class="num">3</span>Current marketing and data</legend>
-<div class="q"><label for="q18">Which City Hive plan are you on, and which marketing features (email, SMS, push notifications) does it include?</label><textarea id="q18" name="3. Current marketing and data | Which City Hive plan are you on, and which marketing features (email, SMS, push notifications) does it include?" rows="3"></textarea></div>
-<div class="q"><label for="q19">How many contacts are on your SMS list? How often do you text, and what results have you seen?</label><textarea id="q19" name="3. Current marketing and data | How many contacts are on your SMS list? How often do you text, and what results have you seen?" rows="3"></textarea></div>
-<div class="q"><label for="q20">How many newsletter subscribers do you have from the home page form? What do they receive after the $10 coupon? Do you also collect emails at the register?</label><textarea id="q20" name="3. Current marketing and data | How many newsletter subscribers do you have from the home page form? What do they receive after the $10 coupon? Do you also collect emails at the register?" rows="3"></textarea></div>
-<div class="q"><label for="q21">Who runs Facebook and Instagram now, and how often do you post?</label><textarea id="q21" name="3. Current marketing and data | Who runs Facebook and Instagram now, and how often do you post?" rows="3"></textarea></div>
-<div class="q"><label for="q22">Have you claimed your Google Business Profile? Who has the login?</label><textarea id="q22" name="3. Current marketing and data | Have you claimed your Google Business Profile? Who has the login?" rows="3"></textarea></div>
-<div class="q"><label for="q23">What have you spent on marketing in the past year (ads, flyers, radio, sponsorships)? What worked?</label><textarea id="q23" name="3. Current marketing and data | What have you spent on marketing in the past year (ads, flyers, radio, sponsorships)? What worked?" rows="3"></textarea></div>
-<div class="q"><label for="q24">Have you run paid ads on Meta (Facebook/Instagram) or Google? Are those ad accounts still active?</label><textarea id="q24" name="3. Current marketing and data | Have you run paid ads on Meta (Facebook/Instagram) or Google? Are those ad accounts still active?" rows="3"></textarea></div>
-<div class="q"><label for="q25">How often are the first-order coupons ($10 off $50+, 10% off) used? Have you had a loyalty or rewards program before, and why did it stop?</label><textarea id="q25" name="3. Current marketing and data | How often are the first-order coupons ($10 off $50+, 10% off) used? Have you had a loyalty or rewards program before, and why did it stop?" rows="3"></textarea></div>
-<div class="q"><label for="q26">What do customers say in reviews, good and bad?</label><textarea id="q26" name="3. Current marketing and data | What do customers say in reviews, good and bad?" rows="3"></textarea></div>
-</fieldset>
-<fieldset class="section" id="s4">
-<legend><span class="num">4</span>Brand and content</legend>
-<div class="q"><label for="q27">Describe the store&#x27;s personality in three words.</label><input type="text" id="q27" name="4. Brand and content | Describe the store&#x27;s personality in three words."></div>
-<div class="q"><label for="q28">Do you have a logo, brand colors or a brand guide? Who has the files?</label><textarea id="q28" name="4. Brand and content | Do you have a logo, brand colors or a brand guide? Who has the files?" rows="3"></textarea></div>
-<div class="q"><label for="q29">Can we take photos and short videos in the store? Are staff willing to appear on camera?</label><textarea id="q29" name="4. Brand and content | Can we take photos and short videos in the store? Are staff willing to appear on camera?" rows="3"></textarea></div>
-<div class="q"><label for="q30">Which staff picks or stories should we feature?</label><textarea id="q30" name="4. Brand and content | Which staff picks or stories should we feature?" rows="3"></textarea></div>
-<div class="q"><label for="q31">Is there anything we should never say or post (brands, topics, competitors)?</label><textarea id="q31" name="4. Brand and content | Is there anything we should never say or post (brands, topics, competitors)?" rows="3"></textarea></div>
-<div class="q" role="group" aria-labelledby="q32_l"><p class="qlabel" id="q32_l">Who will approve content, and how fast can they usually respond?</p><div class="opts"><label class="opt" for="q32_0"><input type="radio" id="q32_0" name="4. Brand and content | Who will approve content, and how fast can they usually respond?" value="Same day"><span>Same day</span></label><label class="opt" for="q32_1"><input type="radio" id="q32_1" name="4. Brand and content | Who will approve content, and how fast can they usually respond?" value="Within 48 hours"><span>Within 48 hours</span></label><label class="opt" for="q32_2"><input type="radio" id="q32_2" name="4. Brand and content | Who will approve content, and how fast can they usually respond?" value="Within a week"><span>Within a week</span></label><label class="opt" for="q32_3"><input type="radio" id="q32_3" name="4. Brand and content | Who will approve content, and how fast can they usually respond?" value="Not sure yet"><span>Not sure yet</span></label></div></div>
-<div class="q"><label for="q33">Content approver&#x27;s name and contact</label><input type="text" id="q33" name="4. Brand and content | Content approver&#x27;s name and contact"></div>
-</fieldset>
-<fieldset class="section" id="s5">
-<legend><span class="num">5</span>Compliance and legal</legend>
-<div class="q"><label for="q34">Which license class do you hold, and are there Prince George&#x27;s County rules on advertising or promotions we should know about?</label><textarea id="q34" name="5. Compliance and legal | Which license class do you hold, and are there Prince George&#x27;s County rules on advertising or promotions we should know about?" rows="3"></textarea></div>
-<div class="q" role="group" aria-labelledby="q35_l"><p class="qlabel" id="q35_l">Do you have records showing how and when SMS subscribers opted in?</p><div class="opts"><label class="opt" for="q35_0"><input type="radio" id="q35_0" name="5. Compliance and legal | Do you have records showing how and when SMS subscribers opted in?" value="Yes"><span>Yes</span></label><label class="opt" for="q35_1"><input type="radio" id="q35_1" name="5. Compliance and legal | Do you have records showing how and when SMS subscribers opted in?" value="Partly"><span>Partly</span></label><label class="opt" for="q35_2"><input type="radio" id="q35_2" name="5. Compliance and legal | Do you have records showing how and when SMS subscribers opted in?" value="No"><span>No</span></label><label class="opt" for="q35_3"><input type="radio" id="q35_3" name="5. Compliance and legal | Do you have records showing how and when SMS subscribers opted in?" value="Not sure"><span>Not sure</span></label></div></div>
-<div class="q"><label for="q36">Do you have a lawyer or licensing advisor who should review our compliance rules?</label><textarea id="q36" name="5. Compliance and legal | Do you have a lawyer or licensing advisor who should review our compliance rules?" rows="3"></textarea></div>
-<div class="q"><label for="q37">Any past issues with the liquor board, social platforms or ad rejections?</label><textarea id="q37" name="5. Compliance and legal | Any past issues with the liquor board, social platforms or ad rejections?" rows="3"></textarea></div>
-<div class="q"><label for="q38">Have you been told about any limits on discounts, coupons or giveaways?</label><textarea id="q38" name="5. Compliance and legal | Have you been told about any limits on discounts, coupons or giveaways?" rows="3"></textarea></div>
-</fieldset>
-<fieldset class="section" id="s6">
-<legend><span class="num">6</span>Budget, decision and timeline</legend>
-<div class="q" role="group" aria-labelledby="q39_l"><p class="qlabel" id="q39_l">What monthly range are you comfortable with for marketing services?</p><div class="opts"><label class="opt" for="q39_0"><input type="radio" id="q39_0" name="6. Budget, decision and timeline | What monthly range are you comfortable with for marketing services?" value="Under $750"><span>Under $750</span></label><label class="opt" for="q39_1"><input type="radio" id="q39_1" name="6. Budget, decision and timeline | What monthly range are you comfortable with for marketing services?" value="$750 to $1,750"><span>$750 to $1,750</span></label><label class="opt" for="q39_2"><input type="radio" id="q39_2" name="6. Budget, decision and timeline | What monthly range are you comfortable with for marketing services?" value="$1,750 to $3,000"><span>$1,750 to $3,000</span></label><label class="opt" for="q39_3"><input type="radio" id="q39_3" name="6. Budget, decision and timeline | What monthly range are you comfortable with for marketing services?" value="Over $3,000"><span>Over $3,000</span></label><label class="opt" for="q39_4"><input type="radio" id="q39_4" name="6. Budget, decision and timeline | What monthly range are you comfortable with for marketing services?" value="Not sure yet"><span>Not sure yet</span></label></div></div>
-<div class="q"><label for="q40">Separately, is there a budget for ad spend? If so, roughly how much per month?</label><input type="text" id="q40" name="6. Budget, decision and timeline | Separately, is there a budget for ad spend? If so, roughly how much per month?"></div>
-<div class="q" role="group" aria-labelledby="q41_l"><p class="qlabel" id="q41_l">Which package sounds closest?</p><div class="opts"><label class="opt" for="q41_0"><input type="radio" id="q41_0" name="6. Budget, decision and timeline | Which package sounds closest?" value="Foundation ($750/mo)"><span>Foundation ($750/mo)</span></label><label class="opt" for="q41_1"><input type="radio" id="q41_1" name="6. Budget, decision and timeline | Which package sounds closest?" value="Growth ($1,750/mo)"><span>Growth ($1,750/mo)</span></label><label class="opt" for="q41_2"><input type="radio" id="q41_2" name="6. Budget, decision and timeline | Which package sounds closest?" value="Automated ($3,000/mo + ad spend)"><span>Automated ($3,000/mo + ad spend)</span></label><label class="opt" for="q41_3"><input type="radio" id="q41_3" name="6. Budget, decision and timeline | Which package sounds closest?" value="Not sure yet"><span>Not sure yet</span></label></div></div>
-<div class="q"><label for="q42">Who else needs to approve the decision?</label><input type="text" id="q42" name="6. Budget, decision and timeline | Who else needs to approve the decision?"></div>
-<div class="q" role="group" aria-labelledby="q43_l"><p class="qlabel" id="q43_l">How soon do you want to start? (The holiday campaign needs approval before Thanksgiving week.)</p><div class="opts"><label class="opt" for="q43_0"><input type="radio" id="q43_0" name="6. Budget, decision and timeline | How soon do you want to start? (The holiday campaign needs approval before Thanksgiving week.)" value="Right away"><span>Right away</span></label><label class="opt" for="q43_1"><input type="radio" id="q43_1" name="6. Budget, decision and timeline | How soon do you want to start? (The holiday campaign needs approval before Thanksgiving week.)" value="In the next 2 to 4 weeks"><span>In the next 2 to 4 weeks</span></label><label class="opt" for="q43_2"><input type="radio" id="q43_2" name="6. Budget, decision and timeline | How soon do you want to start? (The holiday campaign needs approval before Thanksgiving week.)" value="After the holidays"><span>After the holidays</span></label><label class="opt" for="q43_3"><input type="radio" id="q43_3" name="6. Budget, decision and timeline | How soon do you want to start? (The holiday campaign needs approval before Thanksgiving week.)" value="Not sure yet"><span>Not sure yet</span></label></div></div>
-<div class="q" role="group" aria-labelledby="q44_l"><p class="qlabel" id="q44_l">Do you prefer a 3-month trial or a longer commitment?</p><div class="opts"><label class="opt" for="q44_0"><input type="radio" id="q44_0" name="6. Budget, decision and timeline | Do you prefer a 3-month trial or a longer commitment?" value="3-month trial"><span>3-month trial</span></label><label class="opt" for="q44_1"><input type="radio" id="q44_1" name="6. Budget, decision and timeline | Do you prefer a 3-month trial or a longer commitment?" value="6 months"><span>6 months</span></label><label class="opt" for="q44_2"><input type="radio" id="q44_2" name="6. Budget, decision and timeline | Do you prefer a 3-month trial or a longer commitment?" value="12 months"><span>12 months</span></label><label class="opt" for="q44_3"><input type="radio" id="q44_3" name="6. Budget, decision and timeline | Do you prefer a 3-month trial or a longer commitment?" value="Not sure yet"><span>Not sure yet</span></label></div></div>
-<div class="q" role="group" aria-labelledby="q45_l"><p class="qlabel" id="q45_l">How would you like to receive reports?</p><div class="opts"><label class="opt" for="q45_0"><input type="radio" id="q45_0" name="6. Budget, decision and timeline | How would you like to receive reports?" value="Email"><span>Email</span></label><label class="opt" for="q45_1"><input type="radio" id="q45_1" name="6. Budget, decision and timeline | How would you like to receive reports?" value="A call"><span>A call</span></label><label class="opt" for="q45_2"><input type="radio" id="q45_2" name="6. Budget, decision and timeline | How would you like to receive reports?" value="Both"><span>Both</span></label></div></div>
-</fieldset>
-<fieldset class="section" id="s7">
-<legend><span class="num">7</span>Access checklist</legend>
-<p class="intro">To start work, we&#x27;ll need access to a few accounts. Tick the ones you can grant. We&#x27;ll send invites for user or manager access, so please never send passwords through this form.</p>
-<div class="q" role="group" aria-labelledby="q46_l"><p class="qlabel" id="q46_l">Access you can grant</p><div class="opts"><label class="opt" for="q46_0"><input type="checkbox" id="q46_0" name="7. Access checklist | Access you can grant" value="Google Business Profile: manager access"><span>Google Business Profile: manager access</span></label><label class="opt" for="q46_1"><input type="checkbox" id="q46_1" name="7. Access checklist | Access you can grant" value="Meta Business Suite: Facebook Page and Instagram admin"><span>Meta Business Suite: Facebook Page and Instagram admin</span></label><label class="opt" for="q46_2"><input type="checkbox" id="q46_2" name="7. Access checklist | Access you can grant" value="City Hive: website, app and marketing tools"><span>City Hive: website, app and marketing tools</span></label><label class="opt" for="q46_3"><input type="checkbox" id="q46_3" name="7. Access checklist | Access you can grant" value="SMS platform and subscriber export with consent records"><span>SMS platform and subscriber export with consent records</span></label><label class="opt" for="q46_4"><input type="checkbox" id="q46_4" name="7. Access checklist | Access you can grant" value="Meta and Google ad accounts, if any"><span>Meta and Google ad accounts, if any</span></label><label class="opt" for="q46_5"><input type="checkbox" id="q46_5" name="7. Access checklist | Access you can grant" value="Logo, brand files and existing photos"><span>Logo, brand files and existing photos</span></label></div></div>
-<div class="q"><label for="q47">Anything else we should know?</label><textarea id="q47" name="7. Access checklist | Anything else we should know?" rows="3"></textarea></div>
-</fieldset>
+<section class="step" data-step="2" aria-labelledby="h2" hidden>
+  <p class="eyebrow">Step 3 of 9</p>
+  <h2 id="h2" tabindex="-1">Your store</h2>
+  <p class="lede">A few details about day-to-day operations.</p>
+  <div class="q"><label class="ql" for="q10">What are your correct Wednesday hours? (The website shows 8:00 AM to 11:00 AM.)</label><input type="text" id="q10" name="2. Your store | What are your correct Wednesday hours? (The website shows 8:00 AM to 11:00 AM.)" placeholder="e.g. 9:00 AM – 10:00 PM"></div><div class="q"><label class="ql" for="q11">Your events page lists upcoming events. Who plans them, how often do they run, and how well attended are they?</label><textarea id="q11" name="2. Your store | Your events page lists upcoming events. Who plans them, how often do they run, and how well attended are they?" rows="2"></textarea></div><div class="q" role="group" aria-labelledby="q12_l"><p class="ql" id="q12_l">Which do you offer?</p><p class="hint">Choose all that apply.</p><div class="tiles multi"><label class="tile"><input type="checkbox" name="2. Your store | Which do you offer?" value="Delivery"><span class="k" aria-hidden="true"></span><span class="t">Delivery</span></label><label class="tile"><input type="checkbox" name="2. Your store | Which do you offer?" value="Curbside pickup"><span class="k" aria-hidden="true"></span><span class="t">Curbside pickup</span></label><label class="tile"><input type="checkbox" name="2. Your store | Which do you offer?" value="In-store pickup"><span class="k" aria-hidden="true"></span><span class="t">In-store pickup</span></label><label class="tile"><input type="checkbox" name="2. Your store | Which do you offer?" value="None of these"><span class="k" aria-hidden="true"></span><span class="t">None of these</span></label></div></div><div class="q" role="group" aria-labelledby="q13_l"><p class="ql" id="q13_l">Do you get allocated or limited bottles customers would want to hear about?</p><div class="tiles"><label class="tile"><input type="radio" name="2. Your store | Do you get allocated or limited bottles customers would want to hear about?" value="Yes, regularly"><span class="k" aria-hidden="true"></span><span class="t">Yes, regularly</span></label><label class="tile"><input type="radio" name="2. Your store | Do you get allocated or limited bottles customers would want to hear about?" value="Sometimes"><span class="k" aria-hidden="true"></span><span class="t">Sometimes</span></label><label class="tile"><input type="radio" name="2. Your store | Do you get allocated or limited bottles customers would want to hear about?" value="No"><span class="k" aria-hidden="true"></span><span class="t">No</span></label></div></div><details class="more"><summary><span>5 more questions</span><em>optional, helps a lot</em></summary><div class="more-in"><div class="q"><label class="ql" for="q14">Delivery area and minimum order, if any</label><input type="text" id="q14" name="2. Your store | Delivery area and minimum order, if any"></div><div class="q"><label class="ql" for="q15">How many staff do you have, and who could greet customers, run tastings or take photos?</label><textarea id="q15" name="2. Your store | How many staff do you have, and who could greet customers, run tastings or take photos?" rows="2"></textarea></div><div class="q"><label class="ql" for="q16">Which distributors and brand reps do you work with most? Do they supply product or pourers for tastings?</label><textarea id="q16" name="2. Your store | Which distributors and brand reps do you work with most? Do they supply product or pourers for tastings?" rows="2"></textarea></div><div class="q"><label class="ql" for="q17">What POS system do you use, and does it connect to City Hive?</label><input type="text" id="q17" name="2. Your store | What POS system do you use, and does it connect to City Hive?"></div><div class="q"><label class="ql" for="q18">Any store events coming up: anniversaries, renovations, new departments?</label><textarea id="q18" name="2. Your store | Any store events coming up: anniversaries, renovations, new departments?" rows="2"></textarea></div></div></details>
+</section>
 
-    <div class="actions">
-      <button type="submit" id="send">Send my answers</button>
-      <span class="saved" id="saved"></span>
+<section class="step" data-step="3" aria-labelledby="h3" hidden>
+  <p class="eyebrow">Step 4 of 9</p>
+  <h2 id="h3" tabindex="-1">Your marketing today</h2>
+  <p class="lede">What&#x27;s running now, so we build on it instead of starting over.</p>
+  <div class="q"><label class="ql" for="q19">Which City Hive plan are you on, and which marketing features (email, SMS, push) does it include?</label><textarea id="q19" name="3. Your marketing today | Which City Hive plan are you on, and which marketing features (email, SMS, push) does it include?" rows="2" placeholder="Not sure? That&#x27;s fine, just say so."></textarea></div><div class="q"><p class="ql">About how many people are on your lists?</p><div class="duo"><label class="mini"><span>Email subscribers</span><input type="text" inputmode="numeric" name="3. Your marketing today | Email/newsletter subscribers" placeholder="e.g. 800"></label><label class="mini"><span>SMS subscribers</span><input type="text" inputmode="numeric" name="3. Your marketing today | SMS subscribers" placeholder="e.g. 300"></label></div><p class="hint">Best guess is fine.</p></div><div class="q" role="group" aria-labelledby="q21_l"><p class="ql" id="q21_l">Who runs Facebook and Instagram now?</p><div class="tiles"><label class="tile"><input type="radio" name="3. Your marketing today | Who runs Facebook and Instagram now?" value="Me / the owner"><span class="k" aria-hidden="true"></span><span class="t">Me / the owner</span></label><label class="tile"><input type="radio" name="3. Your marketing today | Who runs Facebook and Instagram now?" value="A staff member"><span class="k" aria-hidden="true"></span><span class="t">A staff member</span></label><label class="tile"><input type="radio" name="3. Your marketing today | Who runs Facebook and Instagram now?" value="An agency or freelancer"><span class="k" aria-hidden="true"></span><span class="t">An agency or freelancer</span></label><label class="tile"><input type="radio" name="3. Your marketing today | Who runs Facebook and Instagram now?" value="Nobody right now"><span class="k" aria-hidden="true"></span><span class="t">Nobody right now</span></label></div></div><div class="q" role="group" aria-labelledby="q22_l"><p class="ql" id="q22_l">How often do you post?</p><div class="tiles"><label class="tile"><input type="radio" name="3. Your marketing today | How often do you post?" value="Several times a week"><span class="k" aria-hidden="true"></span><span class="t">Several times a week</span></label><label class="tile"><input type="radio" name="3. Your marketing today | How often do you post?" value="About weekly"><span class="k" aria-hidden="true"></span><span class="t">About weekly</span></label><label class="tile"><input type="radio" name="3. Your marketing today | How often do you post?" value="A few times a month"><span class="k" aria-hidden="true"></span><span class="t">A few times a month</span></label><label class="tile"><input type="radio" name="3. Your marketing today | How often do you post?" value="Rarely"><span class="k" aria-hidden="true"></span><span class="t">Rarely</span></label></div></div><div class="q" role="group" aria-labelledby="q23_l"><p class="ql" id="q23_l">Have you claimed your Google Business Profile?</p><div class="tiles"><label class="tile"><input type="radio" name="3. Your marketing today | Have you claimed your Google Business Profile?" value="Yes"><span class="k" aria-hidden="true"></span><span class="t">Yes</span></label><label class="tile"><input type="radio" name="3. Your marketing today | Have you claimed your Google Business Profile?" value="No"><span class="k" aria-hidden="true"></span><span class="t">No</span></label><label class="tile"><input type="radio" name="3. Your marketing today | Have you claimed your Google Business Profile?" value="Not sure"><span class="k" aria-hidden="true"></span><span class="t">Not sure</span></label></div></div><details class="more"><summary><span>7 more questions</span><em>optional, helps a lot</em></summary><div class="more-in"><div class="q"><label class="ql" for="q24">What do newsletter subscribers receive after the $10 coupon? Do you collect emails at the register?</label><textarea id="q24" name="3. Your marketing today | What do newsletter subscribers receive after the $10 coupon? Do you collect emails at the register?" rows="2"></textarea></div><div class="q"><label class="ql" for="q25">How often do you text the SMS list, and what results have you seen?</label><textarea id="q25" name="3. Your marketing today | How often do you text the SMS list, and what results have you seen?" rows="2"></textarea></div><div class="q"><label class="ql" for="q26">Who has the Google Business Profile login?</label><input type="text" id="q26" name="3. Your marketing today | Who has the Google Business Profile login?"></div><div class="q"><label class="ql" for="q27">What have you spent on marketing in the past year (ads, flyers, radio, sponsorships)? What worked?</label><textarea id="q27" name="3. Your marketing today | What have you spent on marketing in the past year (ads, flyers, radio, sponsorships)? What worked?" rows="2"></textarea></div><div class="q"><label class="ql" for="q28">Have you run paid ads on Meta or Google? Are the ad accounts still active?</label><textarea id="q28" name="3. Your marketing today | Have you run paid ads on Meta or Google? Are the ad accounts still active?" rows="2"></textarea></div><div class="q"><label class="ql" for="q29">How often are the first-order coupons used? Have you had a loyalty program before, and why did it stop?</label><textarea id="q29" name="3. Your marketing today | How often are the first-order coupons used? Have you had a loyalty program before, and why did it stop?" rows="2"></textarea></div><div class="q"><label class="ql" for="q30">What do customers say in reviews, good and bad?</label><textarea id="q30" name="3. Your marketing today | What do customers say in reviews, good and bad?" rows="2"></textarea></div></div></details>
+</section>
+
+<section class="step" data-step="4" aria-labelledby="h4" hidden>
+  <p class="eyebrow">Step 5 of 9</p>
+  <h2 id="h4" tabindex="-1">Your brand</h2>
+  <p class="lede">How Thirsty&#x27;s should look and sound.</p>
+  <div class="q"><label class="ql" for="q31">Describe the store&#x27;s personality in three words.</label><input type="text" id="q31" name="4. Your brand | Describe the store&#x27;s personality in three words." placeholder="e.g. friendly, local, knowledgeable"></div><div class="q" role="group" aria-labelledby="q32_l"><p class="ql" id="q32_l">Can we take photos and short videos in the store?</p><div class="tiles"><label class="tile"><input type="radio" name="4. Your brand | Can we take photos and short videos in the store?" value="Yes"><span class="k" aria-hidden="true"></span><span class="t">Yes</span></label><label class="tile"><input type="radio" name="4. Your brand | Can we take photos and short videos in the store?" value="Yes, with some limits"><span class="k" aria-hidden="true"></span><span class="t">Yes, with some limits</span></label><label class="tile"><input type="radio" name="4. Your brand | Can we take photos and short videos in the store?" value="No"><span class="k" aria-hidden="true"></span><span class="t">No</span></label></div></div><div class="q" role="group" aria-labelledby="q33_l"><p class="ql" id="q33_l">Who will approve posts and emails, and how fast can they usually respond?</p><div class="tiles"><label class="tile"><input type="radio" name="4. Your brand | Who will approve posts and emails, and how fast can they usually respond?" value="Same day"><span class="k" aria-hidden="true"></span><span class="t">Same day</span></label><label class="tile"><input type="radio" name="4. Your brand | Who will approve posts and emails, and how fast can they usually respond?" value="Within 48 hours"><span class="k" aria-hidden="true"></span><span class="t">Within 48 hours</span></label><label class="tile"><input type="radio" name="4. Your brand | Who will approve posts and emails, and how fast can they usually respond?" value="Within a week"><span class="k" aria-hidden="true"></span><span class="t">Within a week</span></label><label class="tile"><input type="radio" name="4. Your brand | Who will approve posts and emails, and how fast can they usually respond?" value="Not sure yet"><span class="k" aria-hidden="true"></span><span class="t">Not sure yet</span></label></div></div><div class="q"><label class="ql" for="q34">Approver&#x27;s name and best contact</label><input type="text" id="q34" name="4. Your brand | Approver&#x27;s name and best contact"></div><details class="more"><summary><span>3 more questions</span><em>optional, helps a lot</em></summary><div class="more-in"><div class="q"><label class="ql" for="q35">Do you have a logo, brand colors or a brand guide? Who has the files?</label><textarea id="q35" name="4. Your brand | Do you have a logo, brand colors or a brand guide? Who has the files?" rows="2"></textarea></div><div class="q"><label class="ql" for="q36">Are staff willing to appear on camera? Which staff picks or stories should we feature?</label><textarea id="q36" name="4. Your brand | Are staff willing to appear on camera? Which staff picks or stories should we feature?" rows="2"></textarea></div><div class="q"><label class="ql" for="q37">Is there anything we should never say or post (brands, topics, competitors)?</label><textarea id="q37" name="4. Your brand | Is there anything we should never say or post (brands, topics, competitors)?" rows="2"></textarea></div></div></details>
+</section>
+
+<section class="step" data-step="5" aria-labelledby="h5" hidden>
+  <p class="eyebrow">Step 6 of 9</p>
+  <h2 id="h5" tabindex="-1">Compliance</h2>
+  <p class="lede">Alcohol marketing is regulated, so we check these up front.</p>
+  <div class="q" role="group" aria-labelledby="q38_l"><p class="ql" id="q38_l">Do you have records showing how and when SMS subscribers opted in?</p><div class="tiles"><label class="tile"><input type="radio" name="5. Compliance | Do you have records showing how and when SMS subscribers opted in?" value="Yes"><span class="k" aria-hidden="true"></span><span class="t">Yes</span></label><label class="tile"><input type="radio" name="5. Compliance | Do you have records showing how and when SMS subscribers opted in?" value="Partly"><span class="k" aria-hidden="true"></span><span class="t">Partly</span></label><label class="tile"><input type="radio" name="5. Compliance | Do you have records showing how and when SMS subscribers opted in?" value="No"><span class="k" aria-hidden="true"></span><span class="t">No</span></label><label class="tile"><input type="radio" name="5. Compliance | Do you have records showing how and when SMS subscribers opted in?" value="Not sure"><span class="k" aria-hidden="true"></span><span class="t">Not sure</span></label></div></div><div class="q" role="group" aria-labelledby="q39_l"><p class="ql" id="q39_l">Do you have a lawyer or licensing advisor who should review our compliance rules?</p><div class="tiles"><label class="tile"><input type="radio" name="5. Compliance | Do you have a lawyer or licensing advisor who should review our compliance rules?" value="Yes"><span class="k" aria-hidden="true"></span><span class="t">Yes</span></label><label class="tile"><input type="radio" name="5. Compliance | Do you have a lawyer or licensing advisor who should review our compliance rules?" value="No"><span class="k" aria-hidden="true"></span><span class="t">No</span></label><label class="tile"><input type="radio" name="5. Compliance | Do you have a lawyer or licensing advisor who should review our compliance rules?" value="Not sure"><span class="k" aria-hidden="true"></span><span class="t">Not sure</span></label></div></div><div class="q"><label class="ql" for="q40">Any past issues with the liquor board, social platforms or ad rejections?</label><textarea id="q40" name="5. Compliance | Any past issues with the liquor board, social platforms or ad rejections?" rows="2" placeholder="None is a fine answer."></textarea></div><details class="more"><summary><span>2 more questions</span><em>optional, helps a lot</em></summary><div class="more-in"><div class="q"><label class="ql" for="q41">Which license class do you hold? Any Prince George&#x27;s County rules on advertising or promotions we should know?</label><textarea id="q41" name="5. Compliance | Which license class do you hold? Any Prince George&#x27;s County rules on advertising or promotions we should know?" rows="2"></textarea></div><div class="q"><label class="ql" for="q42">Have you been told about any limits on discounts, coupons or giveaways?</label><textarea id="q42" name="5. Compliance | Have you been told about any limits on discounts, coupons or giveaways?" rows="2"></textarea></div></div></details>
+</section>
+
+<section class="step" data-step="6" aria-labelledby="h6" hidden>
+  <p class="eyebrow">Step 7 of 9</p>
+  <h2 id="h6" tabindex="-1">Budget and timing</h2>
+  <p class="lede">Quick taps. Nothing here is a commitment.</p>
+  <div class="q" role="group" aria-labelledby="q43_l"><p class="ql" id="q43_l">Monthly range you&#x27;re comfortable with for marketing services</p><div class="tiles"><label class="tile"><input type="radio" name="6. Budget and timing | Monthly range you&#x27;re comfortable with for marketing services" value="Under $750"><span class="k" aria-hidden="true"></span><span class="t">Under $750</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Monthly range you&#x27;re comfortable with for marketing services" value="$750–$1,750"><span class="k" aria-hidden="true"></span><span class="t">$750–$1,750</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Monthly range you&#x27;re comfortable with for marketing services" value="$1,750–$3,000"><span class="k" aria-hidden="true"></span><span class="t">$1,750–$3,000</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Monthly range you&#x27;re comfortable with for marketing services" value="Over $3,000"><span class="k" aria-hidden="true"></span><span class="t">Over $3,000</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Monthly range you&#x27;re comfortable with for marketing services" value="Not sure yet"><span class="k" aria-hidden="true"></span><span class="t">Not sure yet</span></label></div></div><div class="q" role="group" aria-labelledby="q44_l"><p class="ql" id="q44_l">Which package sounds closest?</p><div class="tiles"><label class="tile"><input type="radio" name="6. Budget and timing | Which package sounds closest?" value="Foundation · $750/mo"><span class="k" aria-hidden="true"></span><span class="t">Foundation · $750/mo</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Which package sounds closest?" value="Growth · $1,750/mo"><span class="k" aria-hidden="true"></span><span class="t">Growth · $1,750/mo</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Which package sounds closest?" value="Automated · $3,000/mo + ads"><span class="k" aria-hidden="true"></span><span class="t">Automated · $3,000/mo + ads</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Which package sounds closest?" value="Not sure yet"><span class="k" aria-hidden="true"></span><span class="t">Not sure yet</span></label></div></div><div class="q" role="group" aria-labelledby="q45_l"><p class="ql" id="q45_l">Monthly ad budget, separate from services</p><div class="tiles"><label class="tile"><input type="radio" name="6. Budget and timing | Monthly ad budget, separate from services" value="None for now"><span class="k" aria-hidden="true"></span><span class="t">None for now</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Monthly ad budget, separate from services" value="Under $500"><span class="k" aria-hidden="true"></span><span class="t">Under $500</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Monthly ad budget, separate from services" value="$500–$1,000"><span class="k" aria-hidden="true"></span><span class="t">$500–$1,000</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Monthly ad budget, separate from services" value="Over $1,000"><span class="k" aria-hidden="true"></span><span class="t">Over $1,000</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Monthly ad budget, separate from services" value="Not sure"><span class="k" aria-hidden="true"></span><span class="t">Not sure</span></label></div></div><div class="q" role="group" aria-labelledby="q46_l"><p class="ql" id="q46_l">How soon do you want to start? The holiday campaign needs approval before Thanksgiving week.</p><div class="tiles"><label class="tile"><input type="radio" name="6. Budget and timing | How soon do you want to start? The holiday campaign needs approval before Thanksgiving week." value="Right away"><span class="k" aria-hidden="true"></span><span class="t">Right away</span></label><label class="tile"><input type="radio" name="6. Budget and timing | How soon do you want to start? The holiday campaign needs approval before Thanksgiving week." value="In 2–4 weeks"><span class="k" aria-hidden="true"></span><span class="t">In 2–4 weeks</span></label><label class="tile"><input type="radio" name="6. Budget and timing | How soon do you want to start? The holiday campaign needs approval before Thanksgiving week." value="After the holidays"><span class="k" aria-hidden="true"></span><span class="t">After the holidays</span></label><label class="tile"><input type="radio" name="6. Budget and timing | How soon do you want to start? The holiday campaign needs approval before Thanksgiving week." value="Not sure yet"><span class="k" aria-hidden="true"></span><span class="t">Not sure yet</span></label></div></div><div class="q" role="group" aria-labelledby="q47_l"><p class="ql" id="q47_l">Do you prefer a 3-month trial or a longer commitment?</p><div class="tiles"><label class="tile"><input type="radio" name="6. Budget and timing | Do you prefer a 3-month trial or a longer commitment?" value="3-month trial"><span class="k" aria-hidden="true"></span><span class="t">3-month trial</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Do you prefer a 3-month trial or a longer commitment?" value="6 months"><span class="k" aria-hidden="true"></span><span class="t">6 months</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Do you prefer a 3-month trial or a longer commitment?" value="12 months"><span class="k" aria-hidden="true"></span><span class="t">12 months</span></label><label class="tile"><input type="radio" name="6. Budget and timing | Do you prefer a 3-month trial or a longer commitment?" value="Not sure yet"><span class="k" aria-hidden="true"></span><span class="t">Not sure yet</span></label></div></div><div class="q" role="group" aria-labelledby="q48_l"><p class="ql" id="q48_l">How would you like to receive reports?</p><div class="tiles"><label class="tile"><input type="radio" name="6. Budget and timing | How would you like to receive reports?" value="Email"><span class="k" aria-hidden="true"></span><span class="t">Email</span></label><label class="tile"><input type="radio" name="6. Budget and timing | How would you like to receive reports?" value="A call"><span class="k" aria-hidden="true"></span><span class="t">A call</span></label><label class="tile"><input type="radio" name="6. Budget and timing | How would you like to receive reports?" value="Both"><span class="k" aria-hidden="true"></span><span class="t">Both</span></label></div></div>
+</section>
+
+<section class="step" data-step="7" aria-labelledby="h7" hidden>
+  <p class="eyebrow">Step 8 of 9</p>
+  <h2 id="h7" tabindex="-1">Access to get started</h2>
+  <p class="lede">Tick what you can grant. We&#x27;ll send invites for user or manager access. Please never send passwords here.</p>
+  <div class="q" role="group" aria-labelledby="q49_l"><p class="ql" id="q49_l">Access you can grant</p><p class="hint">Choose all that apply.</p><div class="tiles multi"><label class="tile"><input type="checkbox" name="7. Access to get started | Access you can grant" value="Google Business Profile (manager)"><span class="k" aria-hidden="true"></span><span class="t">Google Business Profile (manager)</span></label><label class="tile"><input type="checkbox" name="7. Access to get started | Access you can grant" value="Facebook Page and Instagram (Meta Business Suite)"><span class="k" aria-hidden="true"></span><span class="t">Facebook Page and Instagram (Meta Business Suite)</span></label><label class="tile"><input type="checkbox" name="7. Access to get started | Access you can grant" value="City Hive: website, app and marketing tools"><span class="k" aria-hidden="true"></span><span class="t">City Hive: website, app and marketing tools</span></label><label class="tile"><input type="checkbox" name="7. Access to get started | Access you can grant" value="SMS platform and subscriber export"><span class="k" aria-hidden="true"></span><span class="t">SMS platform and subscriber export</span></label><label class="tile"><input type="checkbox" name="7. Access to get started | Access you can grant" value="Meta and Google ad accounts"><span class="k" aria-hidden="true"></span><span class="t">Meta and Google ad accounts</span></label><label class="tile"><input type="checkbox" name="7. Access to get started | Access you can grant" value="Logo, brand files and photos"><span class="k" aria-hidden="true"></span><span class="t">Logo, brand files and photos</span></label></div></div><div class="q"><label class="ql" for="q50">Anything else Demond should know?</label><textarea id="q50" name="7. Access to get started | Anything else Demond should know?" rows="2"></textarea></div>
+</section>
+
+<section class="step" data-step="8" aria-labelledby="h8" hidden>
+  <p class="eyebrow">Step 9 of 9</p>
+  <h2 id="h8" tabindex="-1">Review and send</h2>
+  <p class="lede">Here's what you've filled in. Tap a section to add more, or send it as is.</p>
+  <ul class="review" id="review"></ul>
+  <div class="sendbox">
+    <p>Your answers go straight to Demond at Dexton-Livvy and are used only to prepare your marketing plan.</p>
+  </div>
+  <p class="err" id="send_e" role="alert"></p>
+</section>
+    </main>
+  </div>
+  <div class="actions" id="actions">
+    <div class="in">
+      <button type="button" class="btn btn-ghost" id="back">Back</button>
+      <span class="spacer"></span>
+      <span class="kbd" id="kbd">Press <kbd>Enter ↵</kbd></span>
+      <button type="button" class="btn btn-primary" id="next"><span id="nextlbl">Continue</span><span class="arr" aria-hidden="true">→</span></button>
     </div>
-    <div id="status" role="status" aria-live="polite"></div>
-  </form>
-</div>
+  </div>
+</form>
 
 <script>
-(function () {
+(function(){
+  var NAMES = ["You", "Goals", "Store", "Marketing", "Brand", "Compliance", "Budget", "Access", "Review"], N = NAMES.length, BOOK = "https://admin.dexton-livvy.com/book/ba9640fa17a84bddecb58d37963572e8", KEY = 'thirstys-dq-v2';
   var form = document.getElementById('dq');
-  var KEY = 'thirstys-dq-v1';
-  var status = document.getElementById('status');
+  var steps = [].slice.call(document.querySelectorAll('.step'));
+  var navBtns = [].slice.call(document.querySelectorAll('.sn'));
+  var back = document.getElementById('back'), next = document.getElementById('next'), nextlbl = document.getElementById('nextlbl');
   var saved = document.getElementById('saved');
+  var cur = 0, visited = {0:1};
 
-  function fields() { return Array.prototype.filter.call(form.elements, function (el) {
-    return el.name && el.type !== 'hidden' && el.name !== '_gotcha' && el.type !== 'submit'; }); }
+  // mobile segments
+  var segs = document.getElementById('segs');
+  for (var i=0;i<N;i++){ segs.appendChild(document.createElement('i')); }
 
-  // ---- progress ----
-  function progress() {
-    var names = {}, done = {};
-    fields().forEach(function (el) {
-      names[el.name] = 1;
-      if ((el.type === 'radio' || el.type === 'checkbox') ? el.checked : el.value.trim()) done[el.name] = 1;
-    });
-    var t = Object.keys(names).length, d = Object.keys(done).length;
-    document.getElementById('barfill').style.width = (t ? d / t * 100 : 0) + '%';
-    document.getElementById('bartext').textContent = d + ' of ' + t + ' questions answered';
+  function fieldsIn(el){ return [].slice.call(el.querySelectorAll('input[name],textarea[name]')).filter(function(f){ return f.type!=='hidden' && f.name!=='_gotcha'; }); }
+  function answered(el){
+    var names={}, done={};
+    fieldsIn(el).forEach(function(f){ names[f.name]=1; if((f.type==='radio'||f.type==='checkbox')?f.checked:f.value.trim()) done[f.name]=1; });
+    return [Object.keys(done).length, Object.keys(names).length];
   }
 
-  // ---- save / restore draft in this browser only ----
-  function save() {
-    var data = {};
-    fields().forEach(function (el, i) {
-      if (el.type === 'radio' || el.type === 'checkbox') data['i' + i] = el.checked; else data['i' + i] = el.value;
+  // ---------- validation (on blur, clears live) ----------
+  var nameI = document.getElementById('c_name'), emailI = document.getElementById('c_email');
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function vName(show){ var ok = !!nameI.value.trim(); if(show||nameI.classList.contains('bad')){ nameI.classList.toggle('bad',!ok); nameI.classList.toggle('ok',ok); document.getElementById('c_name_e').textContent = ok?'':'Please add your name so Demond knows who this is from.'; } return ok; }
+  function vEmail(show){ var v=emailI.value.trim(), ok = EMAIL.test(v); if(show||emailI.classList.contains('bad')){ emailI.classList.toggle('bad',!ok); emailI.classList.toggle('ok',ok); document.getElementById('c_email_e').textContent = ok?'':(v?'That email looks incomplete. Check for a typo.':'Please add an email so Demond can reply.'); } return ok; }
+  nameI.addEventListener('blur', function(){ if(nameI.value) vName(true); });
+  emailI.addEventListener('blur', function(){ if(emailI.value) vEmail(true); });
+  nameI.addEventListener('input', function(){ vName(false); });
+  emailI.addEventListener('input', function(){ vEmail(false); });
+
+  // ---------- auto-grow textareas ----------
+  function grow(t){ t.style.height='auto'; t.style.height=(t.scrollHeight+2)+'px'; }
+  [].forEach.call(form.querySelectorAll('textarea'), function(t){ t.addEventListener('input', function(){ grow(t); }); });
+
+  // ---------- navigation ----------
+  function render(){
+    steps.forEach(function(s,i){ s.hidden = i!==cur; });
+    navBtns.forEach(function(b,i){
+      if(i===cur) b.setAttribute('aria-current','step'); else b.removeAttribute('aria-current');
+      var a = answered(steps[i]);
+      b.classList.toggle('done', !!(i!==cur && visited[i] && i!==N-1 && a[0]>0));
     });
-    try { localStorage.setItem(KEY, JSON.stringify(data)); saved.textContent = 'Draft saved in this browser'; } catch (e) {}
+    [].forEach.call(segs.children, function(s,i){ s.className = i===cur?'cur':(i<cur?'on':''); });
+    document.getElementById('mname').textContent = NAMES[cur];
+    document.getElementById('mcount').textContent = (cur+1)+' of '+N;
+    document.getElementById('barfill').style.width = (cur/(N-1)*100)+'%';
+    back.style.visibility = cur===0 ? 'hidden' : 'visible';
+    if(cur===N-1){ nextlbl.textContent='Send my answers'; buildReview(); }
+    else if(cur===0){ nextlbl.textContent='Start'; }
+    else { nextlbl.textContent = 'Next: '+NAMES[cur+1]; }
+    document.getElementById('kbd').style.display = cur===N-1 ? 'none' : '';
   }
-  function restore() {
-    var raw = null;
-    try { raw = localStorage.getItem(KEY); } catch (e) {}
-    if (!raw) return;
-    try {
-      var data = JSON.parse(raw);
-      fields().forEach(function (el, i) {
-        var v = data['i' + i]; if (v === undefined) return;
-        if (el.type === 'radio' || el.type === 'checkbox') el.checked = !!v; else el.value = v;
-      });
-      saved.textContent = 'Draft restored';
-    } catch (e) {}
+  function go(i, focus){
+    if(i>cur && cur===0 && !(vName(true) & vEmail(true))){ (nameI.value.trim()?emailI:nameI).focus(); return; }
+    if(i>0 && !(vName(false) && vEmail(false)) && cur!==0){ i=0; }
+    cur = Math.max(0, Math.min(N-1, i)); visited[cur]=1;
+    render(); save();
+    window.scrollTo({top:0, behavior:'smooth'});
+    if(focus!==false){ var h=steps[cur].querySelector('h2'); setTimeout(function(){ h.focus({preventScroll:true}); }, 50); }
+    steps[cur].querySelectorAll('textarea').forEach(grow);
   }
-  var t;
-  form.addEventListener('input', function () { progress(); clearTimeout(t); t = setTimeout(save, 400); });
-  form.addEventListener('change', progress);
-  restore(); progress();
-
-  // ---- submit ----
-  function show(cls, msg) { status.className = cls; status.textContent = msg; }
-
-  form.addEventListener('submit', function (ev) {
-    ev.preventDefault();
-    var name = document.getElementById('c_name'), email = document.getElementById('c_email');
-    if (!name.value.trim()) { show('err', 'Please add your name.'); name.focus(); return; }
-    if (!email.value.trim() || !email.checkValidity()) { show('err', 'Please add a valid email address.'); email.focus(); return; }
-
-    // Build payload; join multi-select checkboxes; skip blank answers.
-    var payload = {}, fd = new FormData(form);
-    fd.forEach(function (v, k) {
-      if (typeof v === 'string' && !v.trim() && k !== '_gotcha') return;
-      payload[k] = payload[k] ? payload[k] + '; ' + v : v;
-    });
-    payload._replyto = email.value.trim();
-
-    var btn = document.getElementById('send');
-    btn.disabled = true; btn.textContent = 'Sending…'; show('', '');
-
-    fetch(form.action, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
-      .then(function (res) {
-        if (!res.ok || (res.j && res.j.errors)) throw new Error('Send failed');
-        try { localStorage.removeItem(KEY); } catch (e) {}
-        form.innerHTML = '<div class="thanks"><h2>Thank you!</h2><p>Your answers have been sent. I\'ll review them before our call.</p></div>';
-        window.scrollTo(0, 0);
-      })
-      .catch(function () {
-        btn.disabled = false; btn.textContent = 'Send my answers';
-        show('err', 'Something went wrong sending your answers. They are still saved in this browser; please try again in a minute.');
-      });
+  next.addEventListener('click', function(){ if(cur===N-1) send(); else go(cur+1); });
+  back.addEventListener('click', function(){ go(cur-1); });
+  navBtns.forEach(function(b){ b.addEventListener('click', function(){ go(+b.dataset.go); }); });
+  form.addEventListener('submit', function(e){ e.preventDefault(); });
+  form.addEventListener('keydown', function(e){
+    if(e.key!=='Enter' || e.isComposing) return;
+    var t=e.target;
+    if(t.tagName==='TEXTAREA' && !(e.metaKey||e.ctrlKey)) return;
+    if(t.tagName==='BUTTON' || t.tagName==='SUMMARY') return;
+    e.preventDefault(); if(cur<N-1) go(cur+1);
   });
+
+  // ---------- review ----------
+  function buildReview(){
+    var ul = document.getElementById('review'); ul.innerHTML='';
+    for(var i=0;i<N-1;i++){
+      var a = answered(steps[i]);
+      var li = document.createElement('li'), b = document.createElement('button');
+      b.type='button'; b.dataset.go=i;
+      b.innerHTML = '<span class="rn"></span><span class="rc"></span><span class="meter"><span></span></span><span class="edit">Edit</span>';
+      b.querySelector('.rn').textContent = NAMES[i];
+      b.querySelector('.rc').textContent = a[0]+' of '+a[1]+' answered';
+      b.querySelector('.meter span').style.width = (a[1]? a[0]/a[1]*100 : 0)+'%';
+      b.addEventListener('click', function(){ go(+this.dataset.go); });
+      li.appendChild(b); ul.appendChild(li);
+    }
+  }
+
+  // ---------- autosave (this browser only) ----------
+  var all = fieldsIn(form), t;
+  function save(){
+    var d={step:cur, v:{}};
+    all.forEach(function(f,i){ d.v[i] = (f.type==='radio'||f.type==='checkbox') ? f.checked : f.value; });
+    try{ localStorage.setItem(KEY, JSON.stringify(d)); saved.textContent='Saved in this browser'; saved.classList.add('on'); }catch(e){}
+  }
+  form.addEventListener('input', function(){ clearTimeout(t); t=setTimeout(save, 400); });
+  form.addEventListener('change', function(){ save(); render(); });
+  (function restore(){
+    var raw=null; try{ raw=localStorage.getItem(KEY); }catch(e){}
+    if(!raw) return;
+    try{
+      var d=JSON.parse(raw);
+      all.forEach(function(f,i){ var v=d.v[i]; if(v===undefined) return; if(f.type==='radio'||f.type==='checkbox') f.checked=!!v; else f.value=v; });
+      for(var i=0;i<=(d.step||0);i++) visited[i]=1;
+      if(d.step && vName(false) && vEmail(false)) cur=Math.min(d.step, N-1);
+      saved.textContent='Welcome back. Your answers were restored.'; saved.classList.add('on');
+    }catch(e){}
+  })();
+
+  // ---------- send ----------
+  function send(){
+    var errEl = document.getElementById('send_e'); errEl.textContent='';
+    if(!(vName(false) && vEmail(false))){ go(0); vName(true); vEmail(true); return; }
+    var payload={}, fd=new FormData(form);
+    fd.forEach(function(v,k){ if(typeof v==='string' && !v.trim() && k!=='_gotcha') return; payload[k] = payload[k] ? payload[k]+'; '+v : v; });
+    payload._replyto = emailI.value.trim();
+    next.disabled=true; nextlbl.textContent='Sending…';
+    fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ return {ok:r.ok,j:j}; }); })
+      .then(function(res){
+        if(!res.ok || res.j.errors) throw 0;
+        try{ localStorage.removeItem(KEY); }catch(e){}
+        thanks();
+      })
+      .catch(function(){
+        next.disabled=false; nextlbl.textContent='Try again';
+        errEl.textContent='Something went wrong sending your answers. They are still saved here; please try again in a minute.';
+      });
+  }
+  function thanks(){
+    var first = nameI.value.trim().split(/\s+/)[0];
+    document.getElementById('actions').remove();
+    document.querySelector('.rail').style.visibility='hidden';
+    document.getElementById('barfill').style.width='100%';
+    [].forEach.call(segs.children, function(s){ s.className='on'; });
+    document.getElementById('mname').textContent='Sent'; document.getElementById('mcount').textContent='';
+    var card = document.getElementById('card');
+    card.innerHTML = '<section class="step thanks"><div class="badge"><svg width="34" height="34" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="#e8490d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
+      + '<h2 tabindex="-1"></h2><p>Demond has your answers and will email you with next steps.</p></section>';
+    var h = card.querySelector('h2'); h.textContent = 'Thank you' + (first ? ', '+first : '') + '!'; h.focus();
+    window.scrollTo(0,0);
+  }
+
+  render();
+  steps[cur].querySelectorAll('textarea').forEach(grow);
 })();
 </script>
 </body>
